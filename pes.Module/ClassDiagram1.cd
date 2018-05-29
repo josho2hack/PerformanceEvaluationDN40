@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="pes.Module.BusinessObjects.EvaluationRound">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAEAAACRAAAAsgAAAAAAAAAAAEAAAAAAAAgAAAAIAA=</HashCode>
+      <FileName>BusinessObjects\EvaluationRound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.PointOfEvaluation">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAgACAQAAKAOAAAAAgIAQAICAEAAIgAAAAAAIAAIA=</HashCode>
+      <FileName>BusinessObjects\PointOfEvaluation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.SubPointOfEvaluation">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAACAOAAAAAgIIQAACCEAAAgAAAAAAIAAAA=</HashCode>
+      <FileName>BusinessObjects\SubPointOfEvaluation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.Evaluation" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAMAAAAAAAABAAAAAYAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\Evaluation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.Dimension" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAMAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\Dimension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.Office">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEIIgAAAAAAAAACAAAAAAAAAAAAAQgCAI=</HashCode>
+      <FileName>BusinessObjects\Office.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.OpenSendScore" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIIAAACAAAAAABAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\OpenSendScore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.Score">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAgIAgAAAAIAAABAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.OwnScore">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAYAAIhABAAIQAQgAACEIAAAAAAADAAAAAA=</HashCode>
+      <FileName>BusinessObjects\OwnScore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.DetailExpect">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAIQAAIAEAAAAAgAAAIAAAAA=</HashCode>
+      <FileName>BusinessObjects\DetailExpect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.AuditScore">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAIAACAAAQAgIgIFAAICAQAAAAAAAAAEAIABAACCAA=</HashCode>
+      <FileName>BusinessObjects\AuditScore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.UnitOfPoint" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\UnitOfPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.Rootobject" Collapsed="true">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessObjects\TaxCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.Taxcollection" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQQABAAAAAQAAABBgABAAAAAAAAAJIAABYAkCAA=</HashCode>
+      <FileName>BusinessObjects\TaxCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pes.Module.BusinessObjects.AuditResult">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAIAAAAAAQARAAAAEAAAAAAAAAABAAAA=</HashCode>
+      <FileName>BusinessObjects\AuditResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="pes.Module.BusinessObjects.Emonth" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAgAAAAACAAAgBAAAAAgAAQAEAACAABAAgAAAIA=</HashCode>
+      <FileName>BusinessObjects\EvaluationRound.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

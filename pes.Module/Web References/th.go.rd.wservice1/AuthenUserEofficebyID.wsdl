@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/">
+      <s:element name="AuthenUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataUser" nillable="true" type="tns:DataUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DataUser">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Authen" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TITLE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OFFICEID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OFFICENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSITION_M" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGE" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthenUser_license">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenUser_licenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataUser" nillable="true" type="tns:DataUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenUser_licenseAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenUser_licenseAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataUser" nillable="true" type="tns:DataUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataUser" nillable="true" type="tns:DataUser" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenUser_license" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenUser_licenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseAllSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenUser_licenseAll" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseAllSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenUser_licenseAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpGetIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseHttpGetIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseAllHttpGetIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpPostIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseHttpPostIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseAllHttpPostIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUser_licenseAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenUserEofficebyIDSoap">
+    <wsdl:operation name="AuthenUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID </wsdl:documentation>
+      <wsdl:input message="tns:AuthenUserSoapIn" />
+      <wsdl:output message="tns:AuthenUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_license">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID...</wsdl:documentation>
+      <wsdl:input message="tns:AuthenUser_licenseSoapIn" />
+      <wsdl:output message="tns:AuthenUser_licenseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_licenseAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID...</wsdl:documentation>
+      <wsdl:input message="tns:AuthenUser_licenseAllSoapIn" />
+      <wsdl:output message="tns:AuthenUser_licenseAllSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AuthenUserEofficebyIDHttpGet">
+    <wsdl:operation name="AuthenUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID </wsdl:documentation>
+      <wsdl:input message="tns:AuthenUserHttpGetIn" />
+      <wsdl:output message="tns:AuthenUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_license">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID...</wsdl:documentation>
+      <wsdl:input message="tns:AuthenUser_licenseHttpGetIn" />
+      <wsdl:output message="tns:AuthenUser_licenseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_licenseAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID...</wsdl:documentation>
+      <wsdl:input message="tns:AuthenUser_licenseAllHttpGetIn" />
+      <wsdl:output message="tns:AuthenUser_licenseAllHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AuthenUserEofficebyIDHttpPost">
+    <wsdl:operation name="AuthenUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID </wsdl:documentation>
+      <wsdl:input message="tns:AuthenUserHttpPostIn" />
+      <wsdl:output message="tns:AuthenUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_license">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID...</wsdl:documentation>
+      <wsdl:input message="tns:AuthenUser_licenseHttpPostIn" />
+      <wsdl:output message="tns:AuthenUser_licenseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_licenseAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using ID...</wsdl:documentation>
+      <wsdl:input message="tns:AuthenUser_licenseAllHttpPostIn" />
+      <wsdl:output message="tns:AuthenUser_licenseAllHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenUserEofficebyIDSoap" type="tns:AuthenUserEofficebyIDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenUser">
+      <soap:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/AuthenUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_license">
+      <soap:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/AuthenUser_license" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_licenseAll">
+      <soap:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/AuthenUser_licenseAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenUserEofficebyIDSoap12" type="tns:AuthenUserEofficebyIDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenUser">
+      <soap12:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/AuthenUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_license">
+      <soap12:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/AuthenUser_license" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_licenseAll">
+      <soap12:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID/AuthenUser_licenseAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenUserEofficebyIDHttpGet" type="tns:AuthenUserEofficebyIDHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AuthenUser">
+      <http:operation location="/AuthenUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_license">
+      <http:operation location="/AuthenUser_license" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_licenseAll">
+      <http:operation location="/AuthenUser_licenseAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenUserEofficebyIDHttpPost" type="tns:AuthenUserEofficebyIDHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AuthenUser">
+      <http:operation location="/AuthenUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_license">
+      <http:operation location="/AuthenUser_license" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenUser_licenseAll">
+      <http:operation location="/AuthenUser_licenseAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthenUserEofficebyID">
+    <wsdl:port name="AuthenUserEofficebyIDSoap" binding="tns:AuthenUserEofficebyIDSoap">
+      <soap:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenUserEofficebyIDSoap12" binding="tns:AuthenUserEofficebyIDSoap12">
+      <soap12:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenUserEofficebyIDHttpGet" binding="tns:AuthenUserEofficebyIDHttpGet">
+      <http:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenUserEofficebyIDHttpPost" binding="tns:AuthenUserEofficebyIDHttpPost">
+      <http:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEofficebyID.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

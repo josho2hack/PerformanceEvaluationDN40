@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="ChangePasswordByUser" Caption="เปลี่ยนรหัสผ่าน" />
+      <Action Id="CloneObject" Caption="คัดลอก..." />
+      <Action Id="CloseView" Caption="ยกเลิก" />
+      <Action Id="Download" Caption="ดาวน์โหลด" />
+      <Action Id="Edit" Caption="แก้ไข" />
+      <Action Id="Export" Caption="บันทึกเป็น" />
+      <Action Id="InlineEdit" Caption="แก้ไขในแถว" />
+      <Action Id="MyDetails" Caption="รายละเอียดผู้ใช้" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.FileData">
+      <OwnMembers>
+        <Member Name="Size" Caption="ขนาด" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole" Caption="สิทธิ์การใช้งาน" />
+  </BOModel>
+  <Localization>
+    <LocalizationGroup Name="Controls">
+      <LocalizationGroup Name="DevExpress.ASPxGridView">
+        <LocalizationItem Name="CardView_PagerRowPerPage" Value="แถวต่อหน้า:" />
+        <LocalizationItem Name="CommandDeselectAllOnAllPages" Value="ยกเลิกเลือกแถวทั้งหมดในทุกหน้า" />
+        <LocalizationItem Name="CommandDeselectAllOnPage" Value="ยกเลิกเลือกแถวทั้งหมดในหน้านี้" />
+        <LocalizationItem Name="CommandSelectAllOnAllPages" Value="เลือกแถวทั้งหมดในทุกหน้า" />
+        <LocalizationItem Name="CommandSelectAllOnPage" Value="เลือกแถวทั้งหมดในหน้านี้" />
+        <LocalizationItem Name="CustomizationDialog_FilterPageUniqueFilterLoadValues" Value="โหลดค่าการเลือก" />
+        <LocalizationItem Name="CustomizationDialog_GroupPageEmptyDragArea" Value="ไม่จัดกลุ่มที่ใช้" />
+        <LocalizationItem Name="CustomizationDialog_GroupPageListArea" Value="คอลัมน์กลุ่ม" />
+        <LocalizationItem Name="CustomizationDialog_SortPageEmptyDragArea" Value="ไม่ใช้การเรียงลำดับ" />
+        <LocalizationItem Name="CustomizationDialog_SortPageListArea" Value="การเรียงลำดับคอลัมน์" />
+        <LocalizationItem Name="GroupContinuedOnNextPage" Value="(ต่อหน้าถัดไป)" />
+        <LocalizationItem Name="PageSizeAllRecords" Value="ทั้งหมด" />
+        <LocalizationItem Name="PageSizeCaption" Value="สินค้าต่อหน้า:" />
+        <LocalizationItem Name="SelectAllCheckBoxInAllPagesMode" Value="เลือกสถานะของแถวทั้งหมดในทุกหน้า" />
+        <LocalizationItem Name="SelectAllCheckBoxInPageMode" Value="เลือกสถานะของแถวทั้งหมดในหน้านี้" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ASPxperience">
+        <LocalizationItem Name="Accessibility_PagerDescription" Value="มีเพจเจอร์ใช้เพื่อนำทางผ่านข้อมูลของตัวควบคุมหลัก" />
+        <LocalizationItem Name="Accessibility_PagerSummaryFormat" Value="หน้า {0} ของ {1}" />
+        <LocalizationItem Name="DataView_PagerPageSize" Value="หน้าขนาด:" />
+        <LocalizationItem Name="DataView_PagerRowPerPage" Value="แถวต่อหน้า:" />
+        <LocalizationItem Name="DataView_PagerSummaryAllPages" Value="หน้าทั้งหมด" />
+        <LocalizationItem Name="DataView_PagerSummaryFormat" Value="หน้า {0} ของ {1}" />
+        <LocalizationItem Name="FileManager_FileInfoTypeCaption_Size" Value="ขนาด" />
+        <LocalizationItem Name="FileManager_GridViewFilter_SizeEmpty" Value="(ที่ว่างเปล่า{0})" />
+        <LocalizationItem Name="FileManager_GridViewFilter_SizeGigantic" Value="มหึมา({0})" />
+        <LocalizationItem Name="FileManager_GridViewFilter_SizeHuge" Value="(ขนาดใหญ่{0})" />
+        <LocalizationItem Name="FileManager_GridViewFilter_SizeLarge" Value="(ขนาดใหญ่{0})" />
+        <LocalizationItem Name="FileManager_GridViewFilter_SizeMedium" Value="ปานกลาง({0})" />
+        <LocalizationItem Name="FileManager_GridViewFilter_SizeSmall" Value="ขนาดเล็ก({0})" />
+        <LocalizationItem Name="FileManager_GridViewFilter_SizeTiny" Value="(จิ๋ว{0})" />
+        <LocalizationItem Name="NewsControl_Page" Value="หน้า:" />
+        <LocalizationItem Name="Pager_All" Value="ทั้งหมด" />
+        <LocalizationItem Name="Pager_First" Value="ครั้งแรก" />
+        <LocalizationItem Name="Pager_Last" Value="ครั้งสุดท้าย" />
+        <LocalizationItem Name="Pager_Next" Value="ถัดไป" />
+        <LocalizationItem Name="Pager_PageSize" Value="รายการต่อหน้า:" />
+        <LocalizationItem Name="Pager_PageSizeAllItem" Value="ทั้งหมด" />
+        <LocalizationItem Name="Pager_Prev" Value="ก่อนหน้า" />
+        <LocalizationItem Name="Pager_SummaryAllPagesFormat" Value="หน้า: {0} - {1} ({2} รายการ)" />
+        <LocalizationItem Name="Pager_SummaryEmptyText" Value="ไม่มีข้อมูลไปยังหน้า" />
+        <LocalizationItem Name="Pager_SummaryFormat" Value="หน้า {0} ของ {1} ({2} รายการ)" />
+        <LocalizationItem Name="PopupControl_SizeGrip" Value="ปรับขนาด" />
+        <LocalizationItem Name="UploadControl_MaxSize" Value="ขนาดแฟ้มเกินกว่าขนาดสูงสุดที่อนุญาต ซึ่งเป็น {0} ไบต์" />
+        <LocalizationItem Name="UploadControl_MultiSelection" Value="ความสนใจ &#xA;&#xA;{0} แฟ้มไม่ถูกต้อง และจะไม่สามารถอัปโหลด สาเหตุคือ: เกินตัว(ขนาดไฟล์ที่อนุญาต{1}), ไม่อนุญาตให้มีส่วนขยายของพวกเขา หรือชื่อแฟ้มประกอบด้วยอักขระที่ไม่ถูกต้อง แฟ้มเหล่านี้จะถูกเอาออกจากส่วนที่เลือก: &#xA;&#xA;{2}" />
+        <LocalizationItem Name="UploadControl_OperationTimeoutError" Value="การอัปโหลดแฟ้มไม่สามารถดำเนินการเนื่องจากหมดเวลาการดำเนินงาน โหลดหน้าเว็บ และอัพโหลดไฟล์ของคุณอีกครั้ง" />
+        <LocalizationItem Name="UploadControl_SessionHasExpiredError" Value="เซสชันของคุณหมดอายุ กรุณารีเฟรชหน้าเพื่อดำเนินต่อ" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="DevExpress.Data.Filtering.Aggregate">
+        <LocalizationItem Name="Count" Value="จำนวน" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Exceptions">
+      <LocalizationGroup Name="SystemExceptions">
+        <LocalizationItem Name="PageCanOnlyContainOneInstanceOfControl" Value="หน้าสามารถประกอบด้วยอินสแตนซ์เดียว '{0}' ควบคุม" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="UserVisibleExceptions">
+        <LocalizationItem Name="FieldValueSizeExceedsMaxLength" Value="ไม่เกินความยาวของค่าของฟิลด์นี้ {0}" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+  <NavigationItems>
+    <Items>
+      <Item Id="User">
+        <Items>
+          <Item Id="Employee_ListView" Caption="ผู้ใช้งานทั้งหมด" />
+          <Item Id="MyDetails" Caption="รายละเอียดผู้ใช้" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Views>
+    <DetailView Id="ContextValidationResult_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Caption="กฎการใช้งานไม่ได้" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="DiagnosticInfoObject_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Caption="เป็นข้อความ" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="FileData_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Caption="ชื่อแฟ้ม" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="KpiDefinition_DetailView">
+      <Layout>
+        <TabbedGroup Id="Tabs">
+          <LayoutGroup Id="Definition">
+            <LayoutGroup Id="SimpleEditors">
+              <LayoutGroup Id="SizeableEditors" Caption="เกณฑ์" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="StaticTextDashboardOrganizationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Caption="ข้อความ" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="UserControlDashboardOrganizationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Caption="ควบคุมเส้นทาง" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

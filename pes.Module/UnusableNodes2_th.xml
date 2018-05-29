@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="pes.Module.BusinessObjects.PointOfEvaluation">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Year" DisplayFormat="{0:d4}" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="OwnScore_ListView" Caption="บันทึกผลการประเมิน" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

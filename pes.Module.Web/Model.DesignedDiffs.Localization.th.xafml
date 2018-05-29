@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Localization>
+    <LocalizationGroup Name="Controls">
+      <LocalizationGroup Name="DevExpress.ASPxGridView">
+        <LocalizationItem Name="CommandBatchEditCancel" Value="ยกเลิกการเปลี่ยนแปลง" />
+        <LocalizationItem Name="CommandBatchEditUpdate" Value="บันทึกการเปลี่ยนแปลง" />
+        <LocalizationItem Name="ContextMenu_GroupByColumn" Value="จัดกลุ่มโดยใช้ Column นี้" />
+        <LocalizationItem Name="EmptyDataRow" Value="ไม่มีข้อมูล" />
+        <LocalizationItem Name="Summary_Count" Value="จำนวน={0}" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ASPxperience">
+        <LocalizationItem Name="DataView_PagerPageSize" Value="จำนวนแถว:" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+</Application>

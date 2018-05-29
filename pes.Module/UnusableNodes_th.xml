@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Validation Id="Validation">
+    <Rules Id="Rules">
+      <RuleCombinationOfPropertiesIsUnique Id="PoERule" MessageTemplateCombinationOfPropertiesMustBeUnique="ตัวชี้วัดต้องกำหนดในแต่ละปีงบประมาณและรอบการวัดไม่ซ้ำกัน: {FormattedTargetProperties}." MessageTemplateFoundObjects="ตรวจสอบข้อมูลที่ซ้ำกัน: " />
+    </Rules>
+  </Validation>
+</Application>

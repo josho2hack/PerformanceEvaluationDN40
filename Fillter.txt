@@ -1,0 +1,3 @@
+StartsWith([Office.OfficeId], Substring([<Employee>][[Oid] = CurrentUserId()].Single([Office.OfficeId]), 0, 8)) 
+And [<OpenSendScore>][[^.PointOfEvaluation.Year] = [Year]] 
+And [<OpenSendScore>][[^.PointOfEvaluation.Round] = [Round]]

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/">
+      <s:element name="AuthenUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DataUser" nillable="true" type="tns:DataUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DataUser">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Authen" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TITLE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMPSTATUS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIRTH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLASS_data" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SKILLID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMPTYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OFFICEID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OFFICENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSITION_M" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLASS_NEW" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LEVEL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POSACT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HeadGrpofExpert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeadGrpofExpertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HeadGrpofExpertResult" type="tns:ArrayOfDataUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataUser" nillable="true" type="tns:DataUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthenbyName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenbyNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenbyNameResult" type="tns:ArrayOfDataUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenbyGrpName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GrpName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenbyGrpNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenbyGrpNameResult" type="tns:ArrayOfDataUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataUser" nillable="true" type="tns:DataUser" />
+      <s:element name="ArrayOfDataUser" nillable="true" type="tns:ArrayOfDataUser" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="HeadGrpofExpertSoapIn">
+    <wsdl:part name="parameters" element="tns:HeadGrpofExpert" />
+  </wsdl:message>
+  <wsdl:message name="HeadGrpofExpertSoapOut">
+    <wsdl:part name="parameters" element="tns:HeadGrpofExpertResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyNameSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenbyName" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyNameSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenbyNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyGrpNameSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenbyGrpName" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyGrpNameSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenbyGrpNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpGetIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="UID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="HeadGrpofExpertHttpGetIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeadGrpofExpertHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyNameHttpGetIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyGrpNameHttpGetIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="GrpName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyGrpNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpPostIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="UID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataUser" />
+  </wsdl:message>
+  <wsdl:message name="HeadGrpofExpertHttpPostIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeadGrpofExpertHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyNameHttpPostIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="FName" type="s:string" />
+    <wsdl:part name="LName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDataUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyGrpNameHttpPostIn">
+    <wsdl:part name="CheckUser" type="s:string" />
+    <wsdl:part name="CheckPass" type="s:string" />
+    <wsdl:part name="GrpName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthenbyGrpNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDataUser" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenUserEoffice1Soap">
+    <wsdl:operation name="AuthenUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using UID and Password </wsdl:documentation>
+      <wsdl:input message="tns:AuthenUserSoapIn" />
+      <wsdl:output message="tns:AuthenUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeadGrpofExpert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search people in group by FName+LName of HeaderGroup</wsdl:documentation>
+      <wsdl:input message="tns:HeadGrpofExpertSoapIn" />
+      <wsdl:output message="tns:HeadGrpofExpertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search Name by FName and LName</wsdl:documentation>
+      <wsdl:input message="tns:AuthenbyNameSoapIn" />
+      <wsdl:output message="tns:AuthenbyNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyGrpName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search people in group by GroupName</wsdl:documentation>
+      <wsdl:input message="tns:AuthenbyGrpNameSoapIn" />
+      <wsdl:output message="tns:AuthenbyGrpNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AuthenUserEoffice1HttpGet">
+    <wsdl:operation name="AuthenUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using UID and Password </wsdl:documentation>
+      <wsdl:input message="tns:AuthenUserHttpGetIn" />
+      <wsdl:output message="tns:AuthenUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeadGrpofExpert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search people in group by FName+LName of HeaderGroup</wsdl:documentation>
+      <wsdl:input message="tns:HeadGrpofExpertHttpGetIn" />
+      <wsdl:output message="tns:HeadGrpofExpertHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search Name by FName and LName</wsdl:documentation>
+      <wsdl:input message="tns:AuthenbyNameHttpGetIn" />
+      <wsdl:output message="tns:AuthenbyNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyGrpName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search people in group by GroupName</wsdl:documentation>
+      <wsdl:input message="tns:AuthenbyGrpNameHttpGetIn" />
+      <wsdl:output message="tns:AuthenbyGrpNameHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AuthenUserEoffice1HttpPost">
+    <wsdl:operation name="AuthenUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check User in Eoffice by using UID and Password </wsdl:documentation>
+      <wsdl:input message="tns:AuthenUserHttpPostIn" />
+      <wsdl:output message="tns:AuthenUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeadGrpofExpert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search people in group by FName+LName of HeaderGroup</wsdl:documentation>
+      <wsdl:input message="tns:HeadGrpofExpertHttpPostIn" />
+      <wsdl:output message="tns:HeadGrpofExpertHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search Name by FName and LName</wsdl:documentation>
+      <wsdl:input message="tns:AuthenbyNameHttpPostIn" />
+      <wsdl:output message="tns:AuthenbyNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyGrpName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search people in group by GroupName</wsdl:documentation>
+      <wsdl:input message="tns:AuthenbyGrpNameHttpPostIn" />
+      <wsdl:output message="tns:AuthenbyGrpNameHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenUserEoffice1Soap" type="tns:AuthenUserEoffice1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenUser">
+      <soap:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/AuthenUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeadGrpofExpert">
+      <soap:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/HeadGrpofExpert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyName">
+      <soap:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/AuthenbyName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyGrpName">
+      <soap:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/AuthenbyGrpName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenUserEoffice1Soap12" type="tns:AuthenUserEoffice1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenUser">
+      <soap12:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/AuthenUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeadGrpofExpert">
+      <soap12:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/HeadGrpofExpert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyName">
+      <soap12:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/AuthenbyName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyGrpName">
+      <soap12:operation soapAction="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1/AuthenbyGrpName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenUserEoffice1HttpGet" type="tns:AuthenUserEoffice1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AuthenUser">
+      <http:operation location="/AuthenUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeadGrpofExpert">
+      <http:operation location="/HeadGrpofExpert" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyName">
+      <http:operation location="/AuthenbyName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyGrpName">
+      <http:operation location="/AuthenbyGrpName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenUserEoffice1HttpPost" type="tns:AuthenUserEoffice1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AuthenUser">
+      <http:operation location="/AuthenUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeadGrpofExpert">
+      <http:operation location="/HeadGrpofExpert" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyName">
+      <http:operation location="/AuthenbyName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenbyGrpName">
+      <http:operation location="/AuthenbyGrpName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthenUserEoffice1">
+    <wsdl:port name="AuthenUserEoffice1Soap" binding="tns:AuthenUserEoffice1Soap">
+      <soap:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenUserEoffice1Soap12" binding="tns:AuthenUserEoffice1Soap12">
+      <soap12:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenUserEoffice1HttpGet" binding="tns:AuthenUserEoffice1HttpGet">
+      <http:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenUserEoffice1HttpPost" binding="tns:AuthenUserEoffice1HttpPost">
+      <http:address location="http://wservice.rd.go.th/ServiceEoffice/AuthenUserEoffice1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

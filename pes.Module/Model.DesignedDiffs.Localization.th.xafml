@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="ระบบรายงานประเมินผลการปฏิบัติราชการ" Company="กองเทคโนโลยีสารสนเทศ กรมสรรพากร" Copyright="สงวนลิขสิทธิ์ © 2560 กรมสรรพากร สงวนสิทธิ์ทุกประการ">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Cancel" Caption="ยกเลิก" />
+      <Action Id="Delete" Caption="ลบ" />
+      <Action Id="DialogCancel" Caption="ยกเลิก" />
+      <Action Id="DialogClose" Caption="ปิด" />
+      <Action Id="DialogOK" Caption="ตกลง" />
+      <Action Id="FullTextSearch" Caption="ค้นหา" NullValuePrompt="ป้อนข้อมูลเพื่อค้นหา..." />
+      <Action Id="Link" Caption="เชื่อมโยง" />
+      <Action Id="ListViewShowObject" Caption="เปิด" />
+      <Action Id="Logoff" Caption="ออกจากระบบ" />
+      <Action Id="Logon" Caption="เข้าสู่ระบบ" />
+      <Action Id="NavigateBack" Caption="ย้อนกลับ" />
+      <Action Id="NavigateForward" Caption="ถัดไป" />
+      <Action Id="New" Caption="สร้างใหม่" />
+      <Action Id="NextObject" Caption="ข้อมูลถัดไป" />
+      <Action Id="Refresh" Caption="รีเฟรช" />
+      <Action Id="ResetViewSettings" Caption="คืนค่าหน้าจอพื้นฐาน" />
+      <Action Id="Save" Caption="บันทึก" />
+      <Action Id="SaveAndClose" Caption="บันทึกและปิด" />
+      <Action Id="SaveAndNew" Caption="บันทึกและสร้างใหม่" />
+      <Action Id="SetFilter" Caption="กรอง" />
+      <Action Id="ShowAllContexts" Caption="ตรวจสอบ" />
+      <Action Id="ShowChart" Caption="แสดง Chart" />
+      <Action Id="ShowInReportV2" Caption="แสดงใน Report" />
+      <Action Id="ShowItemsOnDashboard" Caption="แสดงบน dashboard" />
+      <Action Id="ShowNavigationItem" Caption="นำทาง" />
+      <Action Id="Unlink" Caption="ยกเลิกการเชื่อมโยง" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="pes.Module.BusinessObjects.AuditScore">
+      <OwnMembers>
+        <Member Name="DifExpectResult" DisplayFormat="{0:N3}" />
+        <Member Name="Expect" DisplayFormat="{0:N3}" />
+        <Member Name="OwnScore" Caption="หน่วยงาน" />
+        <Member Name="PercentDif" DisplayFormat="{0:N4}%" />
+        <Member Name="Result" DisplayFormat="{0:N3}" />
+        <Member Name="Score" DisplayFormat="{0:N4}" />
+        <Member Name="WeightScore" DisplayFormat="{0:N4}%" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.DetailExpect">
+      <OwnMembers>
+        <Member Name="ExpectMonthValue" DisplayFormat="{0:N3}" />
+        <Member Name="ExpectYear" DisplayFormat="{0:0000}" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.Dimension">
+      <OwnMembers>
+        <Member Name="Evaluations" Caption="การประเมิน" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.EvaluationRound">
+      <OwnMembers>
+        <Member Name="Year" DisplayFormat="{0:0000}" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.OwnScore">
+      <OwnMembers>
+        <Member Name="Result" DisplayFormat="{0:N3}" />
+        <Member Name="Score" DisplayFormat="{0:N4}" />
+        <Member Name="WeightScore" DisplayFormat="{0:N4}%" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.PointOfEvaluation">
+      <OwnMembers>
+        <Member Name="Weight" DisplayFormat="{0:N0}%" />
+        <Member Name="WeightForST" DisplayFormat="{0:N0}%" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.Score">
+      <OwnMembers>
+        <Member Name="OwnScores" Caption="รายละเอียด" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.SubPointOfEvaluation">
+      <OwnMembers>
+        <Member Name="Weight" DisplayFormat="{0:N0}%" />
+        <Member Name="WeightForST" DisplayFormat="{0:N0}%" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Localization>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="DevExpress.Data.Filtering.Aggregate">
+        <LocalizationItem Name="Count" Value="จำนวน" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Exceptions">
+      <LocalizationGroup Name="UserVisibleExceptions">
+        <LocalizationGroup Name="Validation">
+          <LocalizationItem Name="ActionErrorMessageHeaderFormat" Value="ตรวจพบปัญหาระหว่างการตรวจสอบข้อมูล โปรดอ่านข้อมูลด้านล่างเพื่อทำความเข้าใจว่าปัญหาคืออะไรและคุณสามารถแก้ไขได้อย่างไร" />
+          <LocalizationItem Name="AllContextsErrorMessageHeader" Value="ตรวจพบปัญหาระหว่างการตรวจสอบข้อมูล โปรดอ่านข้อมูลด้านล่างเพื่อทำความเข้าใจว่าปัญหาคืออะไรและคุณสามารถแก้ไขได้อย่างไร" />
+          <LocalizationItem Name="DeleteErrorMessageHeader" Value="ตรวจพบปัญหาระหว่างการตรวจสอบข้อมูล โปรดอ่านข้อมูลด้านล่างเพื่อทำความเข้าใจว่าปัญหาคืออะไรและคุณสามารถแก้ไขได้อย่างไร" />
+          <LocalizationItem Name="SaveErrorMessageHeader" Value="ตรวจพบปัญหาระหว่างการตรวจสอบข้อมูล โปรดอ่านข้อมูลด้านล่างเพื่อทำความเข้าใจว่าปัญหาคืออะไรและคุณสามารถแก้ไขได้อย่างไร" />
+        </LocalizationGroup>
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default" Caption="เมนูหลัก">
+        <Items>
+          <Item Id="Score_ListView" Caption="บันทึกผลการประเมินหน่วยงาน" />
+          <Item Id="AuditScore_ListView" Caption="บันทึกผลการประเมินโดยหน่วยกำกับ" />
+        </Items>
+      </Item>
+      <Item Id="Reports" Caption="รายงาน">
+        <Items>
+          <Item Id="Score_ListView_All" Caption="ผลการประเมินหน่วยงานทั้งหมด" />
+          <Item Id="AuditScore_ListView_All" Caption="ผลการประเมินโดยหน่วยกำกับทั้งหมด" />
+        </Items>
+      </Item>
+      <Item Id="pes" Caption="ข้อมุลพื้นฐาน">
+        <Items>
+          <Item Id="OpenSendScore" Caption="เปิดปิดการบันทึกคะแนน" />
+        </Items>
+      </Item>
+      <Item Id="User" Caption="จัดการผู้ใช้" />
+    </Items>
+  </NavigationItems>
+  <Views>
+    <DetailView Id="Dimension_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Evaluation_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="EvaluationRound_DetailView">
+      <Items>
+        <PropertyEditor Id="Title" Caption="รอบการประเมิน" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="EvaluationRound">
+              <LayoutGroup Id="EvaluationRound_col2" Caption="EvaluationRound_col2">
+                <LayoutGroup Id="Autobe3c1542-b3e5-49cb-919b-ec6db406719a" Caption="" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EvaluationRound_ListView">
+      <Columns>
+        <ColumnInfo Id="Title" Caption="รอบการประเมิน" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PointOfEvaluation_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ReportDataV2_ListView">
+      <Columns>
+        <ColumnInfo Id="DisplayName" Caption="ชื่อรายงาน" />
+        <ColumnInfo Id="DataTypeCaption" Caption="ชนิดข้อมูล" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Score_DetailView">
+      <Items>
+        <PropertyEditor Id="OwnScores" Caption="รายละเอียดผลการประเมินของหน่วยงาน" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Score" Caption="Score">
+              <LayoutGroup Id="Autoa6b46fe0-8146-4527-9e57-2de38ff03f84" Caption="" />
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Score_ListView">
+      <Columns>
+        <ColumnInfo Id="Office.OfficeId" Caption="หมายเลขหน่วยงาน" />
+      </Columns>
+    </ListView>
+    <DetailView Id="UnitOfPoint_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

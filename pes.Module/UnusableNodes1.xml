@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="SubPointOfEvaluation_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SubPointOfEvaluation">
+              <LayoutItem Id="No" RelativeSize="29.09090909090909" />
+              <LayoutItem Id="Title" RelativeSize="21.818181818181817" />
+              <LayoutItem Id="UnitOfPoint" RelativeSize="21.818181818181817" />
+              <LayoutItem Id="Weight" RelativeSize="27.272727272727273" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

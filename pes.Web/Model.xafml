@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application CurrentUserDisplayMode="CaptionAndImage">
+  <NavigationItems ShowNavigationOnStart="False">
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="PermissionPolicyRole_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="User">
+        <Items>
+          <Item Id="PermissionPolicyRole_ListView" ViewId="PermissionPolicyRole_ListView" ObjectKey="" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="17.1.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemAspNetModule" Version="17.1.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="17.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

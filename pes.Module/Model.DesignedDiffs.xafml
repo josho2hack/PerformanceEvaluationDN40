@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="pes" Company="The Revenue Department" Copyright="Copyright © 2017 The Revenue Department. All rights reserved" PreferredLanguage="th" Logo="logo">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Refresh" Caption="ปรับปรุงหน้าจอ" />
+      <Action Id="ResetViewSettings" Caption="คืนค่ามุมมองเริ่มต้น" ToolTip="ล้างค่ามุมมอง &quot;{0}&quot; เป็นมุมมองเริ่มต้น" />
+    </Actions>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRoleBase">
+      <OwnMembers>
+        <Member Name="CanEditModel" Caption="สิทธิ์แก้ไขโปรแกรม" />
+        <Member Name="IsAdministrative" Caption="สิทธิ์ผู้ดูแลระบบ" />
+        <Member Name="Name" Caption="ชื่อ" />
+        <Member Name="NavigationPermissions" Caption="สิทธิ์การเข้าถึงเมนู" />
+        <Member Name="PermissionPolicy" Caption="นโยบายสิทธิ์การใช้งาน" />
+        <Member Name="TypePermissions" Caption="สิทธิ์การเข้าถึงข้อมูล" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser">
+      <OwnMembers>
+        <Member Name="ChangePasswordOnFirstLogon" Caption="เปลี่ยนพาสเวิร์ดเมื่อใช้งานครั้งแรก" />
+        <Member Name="IsActive" Caption="เปิดใช้งาน" />
+        <Member Name="Roles" Caption="สิทธ์" />
+        <Member Name="UserName" Caption="รหัสผู้ใช้" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.AuditScore">
+      <OwnMembers>
+        <Member Name="DetailExpects" DataSourceCriteria="[PoE] = [AuditScore.OwnScore.PointOfEvaluation.No] And [ExpectYear] = [AuditScore.OwnScore.PointOfEvaluation.VRound.Year] And [ExpectOffice] = [AuditScore.OwnScore.MainScore.Office]" />
+        <Member Name="Result" ImmediatePostData="True" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.EvaluationRound">
+      <OwnMembers>
+        <Member Name="Year" ImmediatePostData="True" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.OpenSendScore">
+      <OwnMembers>
+        <Member Name="Open" ImmediatePostData="True" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.OwnScore">
+      <OwnMembers>
+        <Member Name="PointOfEvaluation" ImmediatePostData="True" />
+        <Member Name="Result" ImmediatePostData="True" />
+        <Member Name="SubPointOfEvaluation" ImmediatePostData="True" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default" Index="0">
+        <Items>
+          <Item Id="Score_ListView" Index="0" />
+          <Item Id="AuditScore_ListView" ViewId="AuditScore_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="KPI" Index="2" Visible="False" />
+      <Item Id="Reports" Index="3" Visible="True">
+        <Items>
+          <Item Id="Score_ListView_All" ViewId="Score_ListView" ObjectKey="" Index="0" Visible="False" IsNewNode="True" />
+          <Item Id="AuditScore_ListView_All" ViewId="AuditScore_ListView" ObjectKey="" Index="1" Visible="False" IsNewNode="True" />
+          <Item Id="Analysis_ListView" Visible="False" />
+          <Item Id="Dashboards" Visible="False" />
+          <Item Id="ReportsV2" Visible="True" />
+        </Items>
+      </Item>
+      <Item Id="pes" Index="4">
+        <Items>
+          <Item Id="Dimension_ListView" Index="0" />
+          <Item Id="Evaluation_ListView" Index="1" />
+          <Item Id="PointOfEvaluation_ListView" Index="2" />
+          <Item Id="EvaluationRound_ListView" Index="3" />
+          <Item Id="OpenSendScore" ViewId="OpenSendScore_DetailView" ImageName="Action_Exit" Index="4" IsNewNode="True" />
+          <Item Id="AuditScore_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="User" Index="" />
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="17.1.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="17.1.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="Dimension_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="5.0666666666666664">
+            <LayoutGroup Id="Dimension" RelativeSize="100">
+              <LayoutItem Id="Title" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Direction="Horizontal" RelativeSize="89.86666666666666" Removed="True">
+              <LayoutItem Id="Oid" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Evaluations_Group" Direction="Vertical" RelativeSize="94.933333333333337">
+            <LayoutItem Id="Evaluations" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Dimension_Evaluations_ListView">
+      <Columns>
+        <ColumnInfo Id="Title" SortOrder="Ascending" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Evaluation_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="8.2666666666666675">
+            <LayoutGroup Id="Evaluation" RelativeSize="100">
+              <LayoutItem Id="Title" RelativeSize="51.612903225806448" />
+              <LayoutItem Id="Dimension" RelativeSize="48.387096774193552" />
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Direction="Horizontal" RelativeSize="83.466666666666669" Removed="True">
+              <LayoutItem Id="Oid" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="PointOfEvaluations_Group" Direction="Vertical" RelativeSize="91.733333333333334">
+            <LayoutItem Id="PointOfEvaluations" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Evaluation_PointOfEvaluations_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="Name" Width="144" Index="-1" />
+        <ColumnInfo Id="No" Width="59" Index="-1" />
+        <ColumnInfo Id="Title" Width="161" SortOrder="Ascending" />
+        <ColumnInfo Id="UnitOfPoint" Index="1" />
+        <ColumnInfo Id="Weight" Width="211" Index="2" />
+        <ColumnInfo Id="WeightForST" Width="144" Index="3" />
+        <ColumnInfo Id="AuditOffice" Index="4" />
+        <ColumnInfo Id="VRound" SortOrder="Descending" GroupIndex="0" Index="5" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EvaluationRound_DetailView">
+      <Items>
+        <PropertyEditor Id="Year" ImmediatePostData="True" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="16.560509554140129">
+            <LayoutGroup Id="EvaluationRound" RelativeSize="100">
+              <LayoutGroup Id="EvaluationRound_col1" RelativeSize="50.0595947556615">
+                <LayoutItem Id="Title" RelativeSize="50" />
+                <LayoutItem Id="MonthStart" ViewItem="MonthStart" Index="1" RelativeSize="50" IsNewNode="True" />
+                <LayoutItem Id="VRound" RelativeSize="27.272727272727273" Index="1" Removed="True" />
+                <LayoutItem Id="Year" RelativeSize="21.428571428571427" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="EvaluationRound_col2" RelativeSize="49.9404052443385">
+                <LayoutGroup Id="Autobe3c1542-b3e5-49cb-919b-ec6db406719a" ShowCaption="False" Direction="Horizontal" Index="0" RelativeSize="50" IsNewNode="True">
+                  <LayoutItem Id="Year" ViewItem="Year" Index="0" RelativeSize="49.880668257756561" IsNewNode="True" />
+                  <LayoutItem Id="VRound" ViewItem="VRound" Index="1" RelativeSize="50.119331742243439" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="MonthStop" RelativeSize="50" Index="1" />
+                <LayoutItem Id="MonthStart" RelativeSize="36.363636363636367" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Direction="Horizontal" RelativeSize="61.146496815286625" Removed="True">
+              <LayoutItem Id="Oid" ViewItem="Oid" Index="0" RelativeSize="100" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="83.439490445859875">
+            <LayoutGroup Id="Scores" RelativeSize="100">
+              <LayoutItem Id="Scores" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="PointOfEvaluations" RelativeSize="100">
+              <LayoutItem Id="PointOfEvaluations" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EvaluationRound_ListView">
+      <Columns>
+        <ColumnInfo Id="Title" Width="217" SortOrder="Descending" />
+        <ColumnInfo Id="Year" Width="78" />
+        <ColumnInfo Id="VRound" Width="59" />
+        <ColumnInfo Id="MonthStart" Width="129" />
+        <ColumnInfo Id="MonthStop" Width="131" />
+      </Columns>
+    </ListView>
+    <DetailView Id="OpenSendScore_DetailView" AllowNew="False" AllowDelete="False" />
+    <ListView Id="OpenSendScore_ListView" AllowNew="False" AllowDelete="False" />
+    <ListView Id="OpenSendScore_LookupListView" AllowNew="False" AllowDelete="False" />
+    <DetailView Id="PointOfEvaluation_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="24.242424242424242">
+            <LayoutGroup Id="PointOfEvaluation" RelativeSize="100">
+              <LayoutGroup Id="PointOfEvaluation_col1" RelativeSize="50.059880239520957">
+                <LayoutItem Id="No" RelativeSize="28.571428571428573" />
+                <LayoutItem Id="Name" RelativeSize="21.428571428571427" Index="1" />
+                <LayoutItem Id="UnitOfPoint" RelativeSize="21.428571428571427" Index="2" />
+                <LayoutItem Id="Evaluation" ViewItem="Evaluation" Index="3" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="Title" RelativeSize="17.647058823529413" Removed="True" />
+                <LayoutItem Id="Weight" RelativeSize="23.529411764705884" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="PointOfEvaluation_col2" RelativeSize="49.940119760479043">
+                <LayoutItem Id="Weight" ViewItem="Weight" Index="0" RelativeSize="28.571428571428573" IsNewNode="True" />
+                <LayoutItem Id="WeightForST" RelativeSize="21.428571428571427" Index="1" />
+                <LayoutItem Id="Evaluation" RelativeSize="17.647058823529413" Index="2" Removed="True" />
+                <LayoutItem Id="VRound" RelativeSize="21.428571428571427" Index="2" />
+                <LayoutItem Id="AuditOffice" RelativeSize="28.571428571428573" Index="3" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Direction="Horizontal" RelativeSize="54.666666666666664" Removed="True">
+              <LayoutItem Id="Oid" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="75.757575757575751">
+            <LayoutGroup Id="SubPointOfEvaluations" RelativeSize="100">
+              <LayoutItem Id="SubPointOfEvaluations" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="OwnScores" RelativeSize="100">
+              <LayoutItem Id="OwnScores" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PointOfEvaluation_ListView" IsGroupPanelVisible="True">
+      <Columns>
+        <ColumnInfo Id="Name" Width="144" SortOrder="None" GroupIndex="-1" Index="-1" />
+        <ColumnInfo Id="No" Width="59" Index="-1" />
+        <ColumnInfo Id="Title" Width="62" />
+        <ColumnInfo Id="UnitOfPoint" Width="57" Index="1" />
+        <ColumnInfo Id="Weight" Width="211" Index="2" />
+        <ColumnInfo Id="WeightForST" Width="144" Index="3" />
+        <ColumnInfo Id="Evaluation" Width="72" Index="4" />
+        <ColumnInfo Id="AuditOffice" Width="71" Index="5" />
+        <ColumnInfo Id="VRound" Width="102" SortOrder="Descending" GroupIndex="0" Index="6" />
+      </Columns>
+    </ListView>
+    <ListView Id="PointOfEvaluation_OwnScores_ListView">
+      <Columns>
+        <ColumnInfo Id="Result" Width="98" />
+        <ColumnInfo Id="Score" Width="86" />
+        <ColumnInfo Id="WeightScore" Width="114" />
+        <ColumnInfo Id="SubPointOfEvaluation" Width="163" />
+        <ColumnInfo Id="AuditScore" Width="122" />
+        <ColumnInfo Id="MainScore" Width="93" />
+      </Columns>
+    </ListView>
+    <ListView Id="PointOfEvaluation_SubPointOfEvaluations_ListView">
+      <Columns>
+        <ColumnInfo Id="Name" Index="-1" />
+        <ColumnInfo Id="No" Index="-1" />
+        <ColumnInfo Id="UnitOfPoint" Index="1" />
+        <ColumnInfo Id="Weight" Index="2" Width="83" />
+        <ColumnInfo Id="WeightForST" Index="3" Width="144" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Score_DetailView" AllowDelete="False" AllowEdit="True" AllowNew="False">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="9.872611464968152">
+            <LayoutGroup Id="Score" RelativeSize="100">
+              <LayoutItem Id="Office" RelativeSize="51.612903225806448" />
+              <LayoutGroup Id="Autoa6b46fe0-8146-4527-9e57-2de38ff03f84" ShowCaption="False" Direction="Horizontal" Index="1" RelativeSize="48.387096774193552" IsNewNode="True">
+                <LayoutItem Id="VRound" ViewItem="VRound" Index="0" RelativeSize="50" IsNewNode="True" />
+                <LayoutItem Id="Owner" ViewItem="Owner" Index="1" RelativeSize="50" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="Owner" RelativeSize="27.906976744186046" Removed="True" />
+              <LayoutItem Id="VRound" RelativeSize="34.883720930232556" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Direction="Horizontal" RelativeSize="77.066666666666663" Removed="True">
+              <LayoutItem Id="Oid" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="OwnScores_Group" Direction="Vertical" RelativeSize="90.127388535031841">
+            <LayoutItem Id="OwnScores" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Score_ListView" Criteria="" AllowNew="False" AllowEdit="False" IsFooterVisible="False" IsGroupPanelVisible="True" AllowDelete="False">
+      <Columns>
+        <ColumnInfo Id="Owner" Index="-1" Width="146" />
+        <ColumnInfo Id="Office.OfficeId" PropertyName="Office.OfficeId" Index="0" Width="110" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
+        <ColumnInfo Id="Office" Width="62" Index="1" SortOrder="None" GroupIndex="-1" />
+        <ColumnInfo Id="VRound" Index="2" Width="146" SortIndex="-1" SortOrder="None" />
+      </Columns>
+    </ListView>
+    <ListView Id="Score_OwnScores_ListView" IsGroupPanelVisible="True" AllowEdit="True" AllowDelete="False" AllowLink="False" AllowNew="False" IsFooterVisible="True">
+      <Columns>
+        <ColumnInfo Id="SubPointOfEvaluation" Index="1" Width="163" SortOrder="None" GroupIndex="-1" />
+        <ColumnInfo Id="Result" Index="2" Width="98" />
+        <ColumnInfo Id="Score" Index="3" Width="86" />
+        <ColumnInfo Id="PointOfEvaluation" SortIndex="-1" GroupIndex="0" Width="155" SortOrder="Ascending" />
+        <ColumnInfo Id="WeightScore" Index="4" Width="114" />
+        <ColumnInfo Id="AuditScore" Width="102" />
+      </Columns>
+    </ListView>
+    <DetailView Id="UnitOfPoint_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="UnitOfPoint" RelativeSize="100">
+              <LayoutItem Id="Title" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" Direction="Horizontal" RelativeSize="94.933333333333337" Removed="True">
+              <LayoutItem Id="Oid" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>
