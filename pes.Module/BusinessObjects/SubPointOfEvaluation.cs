@@ -49,7 +49,7 @@ namespace pes.Module.BusinessObjects
         {
             get
             {
-                title = PointOfEvaluation.No + "." + No + "." + Name;
+                title = PoE.No + "." + No + "." + Name;
                 return title;
             }
         }
@@ -111,14 +111,8 @@ namespace pes.Module.BusinessObjects
         [XafDisplayName("ตัวชี้วัดหลัก")]
         public PointOfEvaluation PoE
         {
-            get
-            {
-                return PoE;
-            }
-            set
-            {
-                SetPropertyValue("PointOfEvaluation", ref poE, value);
-            }
+            get => poE;
+            set => SetPropertyValue(nameof(PoE), ref poE, value);
         }
     }
 }

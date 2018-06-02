@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="pes.Module.BusinessObjects.DetailExpect">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="ExpectYear" DisplayFormat="{0:0000}" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="EvaluationRound_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="EvaluationRound">
+              <LayoutGroup Id="EvaluationRound_col2" Caption="EvaluationRound_col2">
+                <LayoutGroup Id="Autobe3c1542-b3e5-49cb-919b-ec6db406719a" Caption="" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

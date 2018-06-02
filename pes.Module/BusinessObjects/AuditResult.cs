@@ -54,7 +54,7 @@ namespace pes.Module.BusinessObjects
         }
 
         Office office;
-        [Association("Office-AuditResults")]
+        //[Association("Office-AuditResults")]
         public Office Office
         {
             get => office;
@@ -62,7 +62,7 @@ namespace pes.Module.BusinessObjects
         }
 
         PointOfEvaluation poE;
-        [Association("PointOfEvaluation-AuditResults")]
+        //[Association("PointOfEvaluation-AuditResults")]
         public PointOfEvaluation PoE
         {
             get => poE;
@@ -70,7 +70,7 @@ namespace pes.Module.BusinessObjects
         }
 
         SubPointOfEvaluation sPoE;
-        [Association("SubPointOfEvaluation-AuditResults")]
+        //[Association("SubPointOfEvaluation-AuditResults")]
         public SubPointOfEvaluation SPoE
         {
             get => sPoE;

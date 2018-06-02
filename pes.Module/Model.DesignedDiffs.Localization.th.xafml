@@ -45,7 +45,6 @@
     <Class Name="pes.Module.BusinessObjects.DetailExpect">
       <OwnMembers>
         <Member Name="ExpectMonthValue" DisplayFormat="{0:N3}" />
-        <Member Name="ExpectYear" DisplayFormat="{0:0000}" />
       </OwnMembers>
     </Class>
     <Class Name="pes.Module.BusinessObjects.Dimension">
@@ -148,11 +147,6 @@
       <Layout>
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="EvaluationRound">
-              <LayoutGroup Id="EvaluationRound_col2" Caption="EvaluationRound_col2">
-                <LayoutGroup Id="Autobe3c1542-b3e5-49cb-919b-ec6db406719a" Caption="" />
-              </LayoutGroup>
-            </LayoutGroup>
             <LayoutGroup Id="XPObject" Caption="Oid" />
           </LayoutGroup>
         </LayoutGroup>

@@ -31,9 +31,9 @@
             // 
             // CreateFormController
             // 
-            this.TargetObjectType = typeof(pes.Module.BusinessObjects.OwnScore);
-            this.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
-            this.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.TargetObjectType = typeof(pes.Module.BusinessObjects.Score);
+            this.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.Activated += new System.EventHandler(this.CreateFormController_Activated);
 
         }

@@ -76,7 +76,7 @@ namespace pes.Module.BusinessObjects
             }
         }
 
-        [Association("Office-DetailExpects")]
+        //[Association("Office-DetailExpects")]
         [XafDisplayName("ประมาณการของหน่วยงาน")]
         public XPCollection<DetailExpect> DetailExpects
         {

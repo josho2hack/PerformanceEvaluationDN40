@@ -132,7 +132,7 @@ namespace pes.Module.BusinessObjects
         {
             get
             {
-                return GetCollection<SubPointOfEvaluation>("SubPointOfEvaluations");
+                return GetCollection<SubPointOfEvaluation>(nameof(SPoEs));
             }
         }
 

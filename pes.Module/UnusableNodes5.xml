@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="PointOfEvaluation_SubPointOfEvaluations_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Name" Index="-1" />
+        <ColumnInfo Id="No" Index="-1" />
+        <ColumnInfo Id="UnitOfPoint" Index="1" />
+        <ColumnInfo Id="Weight" Index="2" Width="83" />
+        <ColumnInfo Id="WeightForST" Index="3" Width="144" />
+      </Columns>
+    </ListView>
+    <ListView Id="Score_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="VRound" Index="2" Width="146" SortIndex="-1" SortOrder="None" />
+      </Columns>
+    </ListView>
+    <ListView Id="Evaluation_PointOfEvaluations_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="VRound" SortOrder="Descending" GroupIndex="0" Index="5" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EvaluationRound_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="EvaluationRound">
+              <LayoutGroup Id="EvaluationRound_col1" RelativeSize="50.0595947556615">
+                <LayoutItem Id="Title" RelativeSize="50" />
+                <LayoutItem Id="MonthStart" ViewItem="MonthStart" Index="1" RelativeSize="50" />
+                <LayoutItem Id="VRound" RelativeSize="27.272727272727273" Index="1" Removed="True" />
+                <LayoutItem Id="Year" RelativeSize="21.428571428571427" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="EvaluationRound_col2" RelativeSize="49.9404052443385">
+                <LayoutGroup Id="Autobe3c1542-b3e5-49cb-919b-ec6db406719a" ShowCaption="False" Direction="Horizontal" Index="0" RelativeSize="50">
+                  <LayoutItem Id="Year" ViewItem="Year" Index="0" RelativeSize="49.880668257756561" />
+                  <LayoutItem Id="VRound" ViewItem="VRound" Index="1" RelativeSize="50.119331742243439" />
+                </LayoutGroup>
+                <LayoutItem Id="MonthStop" RelativeSize="50" Index="1" />
+                <LayoutItem Id="MonthStart" RelativeSize="36.363636363636367" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="PointOfEvaluations" RelativeSize="100">
+              <LayoutItem Id="PointOfEvaluations" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EvaluationRound_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="VRound" Width="59" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PointOfEvaluation_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PointOfEvaluation">
+              <LayoutGroup Id="PointOfEvaluation_col1">
+                <LayoutItem Id="Weight" RelativeSize="23.529411764705884" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="PointOfEvaluation_col2">
+                <LayoutItem Id="VRound" RelativeSize="21.428571428571427" Index="2" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="SubPointOfEvaluations" RelativeSize="100">
+              <LayoutItem Id="SubPointOfEvaluations" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PointOfEvaluation_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="VRound" Width="102" SortOrder="Descending" GroupIndex="0" Index="6" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Score_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Score">
+              <LayoutItem Id="VRound" RelativeSize="34.883720930232556" Removed="True" />
+              <LayoutGroup Id="Autoa6b46fe0-8146-4527-9e57-2de38ff03f84">
+                <LayoutItem Id="VRound" ViewItem="VRound" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

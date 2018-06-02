@@ -16,7 +16,7 @@ namespace pes.Module.BusinessObjects
 {
     [DefaultClassOptions]
     [XafDisplayName("บันทึกผลการประเมินหน่วยงาน")]
-    [RuleCombinationOfPropertiesIsUnique("ScoreRule", DefaultContexts.Save, "Office,VRound")]
+    [RuleCombinationOfPropertiesIsUnique("ScoreRule", DefaultContexts.Save, "Office,ERound")]
     public class Score : XPObject
     { 
         public Score(Session session)
