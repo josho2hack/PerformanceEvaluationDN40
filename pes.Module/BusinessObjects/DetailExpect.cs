@@ -15,7 +15,7 @@ using DevExpress.Persistent.Validation;
 namespace pes.Module.BusinessObjects
 {
     [NavigationItem("pes")]
-    [XafDisplayName("ประมาณการ")]
+    [XafDisplayName("ประมาณการรายเดือนโดยหน่วยกำกับ")]
     public class DetailExpect : XPObject
     { 
         public DetailExpect(Session session)
@@ -54,6 +54,7 @@ namespace pes.Module.BusinessObjects
         }
 
         Office office;
+        [XafDisplayName("หน่วยงาน")]
         //[Association("Office-DetailExpects")]
         public Office Office
         {
@@ -62,6 +63,7 @@ namespace pes.Module.BusinessObjects
         }
 
         PointOfEvaluation poE;
+        [XafDisplayName("ตัวชี้วัด")]
         //[Association("PointOfEvaluation-DetailExpects")]
         public PointOfEvaluation PoE
         {
@@ -70,6 +72,7 @@ namespace pes.Module.BusinessObjects
         }
 
         SubPointOfEvaluation sPoE;
+        [XafDisplayName("ตัวชี้วัดย่อย")]
         //[Association("SubPointOfEvaluation-DetailExpects")]
         public SubPointOfEvaluation SPoE
         {

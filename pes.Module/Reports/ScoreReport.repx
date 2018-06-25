@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="17.1.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="ScoreReport" SnapGridSize="25" ReportUnit="TenthsOfAMillimeter" Margins="50, 50, 50, 50" PaperKind="A4" PageWidth="2100" PageHeight="2970" ScriptReferencesString="DevExpress.Xpo.v17.1.dll" Version="17.1" FilterString="[MainScore.Office.OfficeId] = ?" DataSource="#Ref-0" TextAlignment="MiddleCenter" Dpi="254" Font="TH SarabunIT๙, 14.249999pt">
+  <CalculatedFields>
+    <Item1 Ref="2" Name="StartM" Expression="Iif([MainScore.ERound.MonthStart]==0,'ตุลาคม',&#xA;Iif([MainScore.ERound.MonthStart]==1,'พฤศจิการยน',&#xA;Iif([MainScore.ERound.MonthStart]==2,'ธันวาคม',&#xA;Iif([MainScore.ERound.MonthStart]==3,'มกราคม',&#xA;Iif([MainScore.ERound.MonthStart]==4,'กุมภาพันธ์',&#xA;Iif([MainScore.ERound.MonthStart]==5,'มีนาคม',&#xA;Iif([MainScore.ERound.MonthStart]==6,'เมษายน',&#xA;Iif([MainScore.ERound.MonthStart]==7,'พฤษภาคม',&#xA;Iif([MainScore.ERound.MonthStart]==8,'มิถุนายน',&#xA;Iif([MainScore.ERound.MonthStart]==8,'กรกฎาคม',&#xA;Iif([MainScore.ERound.MonthStart]==8,'สิงหาคม',&#xA;'กันยายน')))))))))))" />
+    <Item2 Ref="3" Name="StopM" Expression="Iif([MainScore.ERound.MonthStop]==0,'ตุลาคม',&#xA;Iif([MainScore.ERound.MonthStop]==1,'พฤศจิการยน',&#xA;Iif([MainScore.ERound.MonthStop]==2,'ธันวาคม',&#xA;Iif([MainScore.ERound.MonthStop]==3,'มกราคม',&#xA;Iif([MainScore.ERound.MonthStop]==4,'กุมภาพันธ์',&#xA;Iif([MainScore.ERound.MonthStop]==5,'มีนาคม',&#xA;Iif([MainScore.ERound.MonthStop]==6,'เมษายน',&#xA;Iif([MainScore.ERound.MonthStop]==7,'พฤษภาคม',&#xA;Iif([MainScore.ERound.MonthStop]==8,'มิถุนายน',&#xA;Iif([MainScore.ERound.MonthStop]==8,'กรกฎาคม',&#xA;Iif([MainScore.ERound.MonthStop]==8,'สิงหาคม',&#xA;'กันยายน')))))))))))" />
+  </CalculatedFields>
+  <Bands>
+    <Item1 Ref="4" ControlType="DetailBand" Name="Detail" KeepTogetherWithDetailReports="true" HeightF="1356.89587" KeepTogether="true" TextAlignment="MiddleCenter" Dpi="254" StyleName="DataField" Font="TH SarabunIT๙, 14.249999pt" Padding="0,0,0,0,254">
+      <Controls>
+        <Item1 Ref="5" ControlType="XRTable" Name="xrTable1" SizeF="2000,200" LocationFloat="0, 169.999954" Dpi="254" Font="TH SarabunIT๙, 14pt, style=Bold" Borders="All">
+          <Rows>
+            <Item1 Ref="6" ControlType="XRTableRow" Name="xrTableRow1" Weight="1" Dpi="254">
+              <Cells>
+                <Item1 Ref="7" ControlType="XRTableCell" Name="xrTableCell1" Weight="1.745156627263885" RowSpan="3" Text="ตัวชี้วัดผลการปฏิบัติราชการ" Dpi="254" />
+                <Item2 Ref="8" ControlType="XRTableCell" Name="xrTableCell2" Weight="0.21814458355170169" RowSpan="3" Multiline="true" Text="หน่วยวัด" Dpi="254" />
+                <Item3 Ref="9" ControlType="XRTableCell" Name="xrTableCell4" Weight="0.21814457789276792" RowSpan="3" Text="น้ำหนักร้อยละ" Dpi="254" />
+                <Item4 Ref="10" ControlType="XRTableCell" Name="xrTableCell3" Weight="0.7189220482436538" Text="ผลการประเมินของหน่วยงาน" Dpi="254" />
+              </Cells>
+            </Item1>
+            <Item2 Ref="11" ControlType="XRTableRow" Name="xrTableRow2" Weight="1" Dpi="254">
+              <Cells>
+                <Item1 Ref="12" ControlType="XRTableCell" Name="xrTableCell7" Weight="1.7451564497373706" Dpi="254" Font="TH SarabunIT๙, 14.249999pt">
+                  <StylePriority Ref="13" UseFont="false" />
+                </Item1>
+                <Item2 Ref="14" ControlType="XRTableCell" Name="xrTableCell8" Weight="0.21814474998280919" Text="xrTableCell8" Dpi="254" />
+                <Item3 Ref="15" ControlType="XRTableCell" Name="xrTableCell9" Weight="0.21814457789276809" Text="xrTableCell9" Dpi="254" />
+                <Item4 Ref="16" ControlType="XRTableCell" Name="xrTableCell10" Weight="0.2617736725177241" RowSpan="2" Text="ผลการดำเนินงาน" Dpi="254" />
+                <Item5 Ref="17" ControlType="XRTableCell" Name="xrTableCell11" Weight="0.21814476976814318" RowSpan="2" Text="ค่าคะแนนที่ได้" Dpi="254" />
+                <Item6 Ref="18" ControlType="XRTableCell" Name="xrTableCell12" Weight="0.23900361705319373" RowSpan="2" Text="ค่าคะแนนถ่วงน้ำหนัก" Dpi="254" />
+              </Cells>
+            </Item2>
+            <Item3 Ref="19" ControlType="XRTableRow" Name="xrTableRow3" Weight="1" Dpi="254">
+              <Cells>
+                <Item1 Ref="20" ControlType="XRTableCell" Name="xrTableCell5" Weight="1.7451564497373704" Text="xrTableCell5" Dpi="254" />
+                <Item2 Ref="21" ControlType="XRTableCell" Name="xrTableCell6" Weight="0.21814474998280931" Text="xrTableCell6" Dpi="254" />
+                <Item3 Ref="22" ControlType="XRTableCell" Name="xrTableCell13" Weight="0.21814475541928269" Text="xrTableCell13" Dpi="254" />
+                <Item4 Ref="23" ControlType="XRTableCell" Name="xrTableCell14" Weight="0.26177349499120955" Text="xrTableCell14" Dpi="254" />
+                <Item5 Ref="24" ControlType="XRTableCell" Name="xrTableCell15" Weight="0.21814459224162858" Text="xrTableCell15" Dpi="254" />
+                <Item6 Ref="25" ControlType="XRTableCell" Name="xrTableCell16" Weight="0.23900379457970838" Text="xrTableCell16" Dpi="254" />
+              </Cells>
+            </Item3>
+          </Rows>
+          <StylePriority Ref="26" UseFont="false" UseBorders="false" />
+        </Item1>
+        <Item2 Ref="27" ControlType="XRRichText" Name="xrRichText1" SerializableRtfString="ewBcAHIAdABmADEAXABhAG4AcwBpAGMAcABnADgANwA0AA0ACgB7AA0ACgBcAGYAbwBuAHQAdABiAGwADQAKAHsAXABmADAAIABUAGkAbQBlAHMAIABOAGUAdwAgAFIAbwBtAGEAbgA7AH0ADQAKAHsAXABmADEAIABUAEgAIABTAGEAcgBhAGIAdQBuAEkAVAD5ADsAfQANAAoAfQANAAoAewANAAoAXABjAG8AbABvAHIAdABiAGwADQAKADsADQAKAFwAcgBlAGQAMABcAGcAcgBlAGUAbgAwAFwAYgBsAHUAZQAwADsADQAKAFwAcgBlAGQAMABcAGcAcgBlAGUAbgAwAFwAYgBsAHUAZQAyADUANQA7AA0ACgB9AA0ACgBcAG4AbwB1AGkAYwBvAG0AcABhAHQAXABzAHAAbAB5AHQAdwBuAGkAbgBlAFwAaAB0AG0AYQB1AHQAcwBwAHsAXABwAGEAcgBkAFwAcABsAGEAaQBuAFwAcQBjAHsAXABiAFwAZgAxAFwAZgBzADIAOABcAGMAZgAxACAAXAB1ADMANQA4ADgAXAAnAGEANABcAHUAMwA2ADMANQBcACcAZAAzAFwAdQAzADYAMQA5AFwAJwBjADMAXAB1ADMANgAzADMAXAAnAGQAMQBcAHUAMwA2ADEAMABcACcAYgBhAFwAdQAzADYAMQA5AFwAJwBjADMAXAB1ADMANgAyADkAXAAnAGMAZABcAHUAMwA1ADkAMQBcACcAYQA3AFwAdQAzADUAOAA1AFwAJwBhADEAXAB1ADMANgAzADQAXAAnAGQAMgBcAHUAMwA2ADEAOQBcACcAYwAzAFwAdQAzADYAMQAxAFwAJwBiAGIAXAB1ADMANQA5ADkAXAAnAGEAZgBcAHUAMwA2ADMANgBcACcAZAA0AFwAdQAzADYAMQAwAFwAJwBiAGEAXAB1ADMANgAzADMAXAAnAGQAMQBcAHUAMwA2ADAANQBcACcAYgA1AFwAdQAzADYAMwA2AFwAJwBkADQAXAB1ADMANgAxADkAXAAnAGMAMwBcAHUAMwA2ADMANABcACcAZAAyAFwAdQAzADUAOQA0AFwAJwBhAGEAXAB1ADMANQA4ADUAXAAnAGEAMQBcAHUAMwA2ADMANABcACcAZAAyAFwAdQAzADYAMQA5AFwAJwBjADMAIAAgAFwAdQAzADYAMQAxAFwAJwBiAGIAXAB1ADMANgAxADkAXAAnAGMAMwBcAHUAMwA2ADMAMgBcACcAZAAwAFwAdQAzADUAOQAyAFwAJwBhADgAXAB1ADMANgAzADUAXAAnAGQAMwBcAHUAMwA2ADEAMQBcACcAYgBiAFwAdQAzADYAMwA3AFwAJwBkADUAXAB1ADMANQA5ADEAXAAnAGEANwBcAHUAMwA2ADEAMABcACcAYgBhAFwAdQAzADYAMQAxAFwAJwBiAGIAXAB1ADMANgAxADkAXAAnAGMAMwBcAHUAMwA2ADMAMgBcACcAZAAwAFwAdQAzADYAMQA3AFwAJwBjADEAXAB1ADMANgAzADQAXAAnAGQAMgBcAHUAMwA2ADAAMwBcACcAYgAzACAAXAB1ADMANgAxADQAXAAnAGIAZQAuAFwAdQAzADYAMgA0AFwAJwBjADgAfQB7AFwAbABhAG4AZwAxADAAMwAzAFwAbABhAG4AZwBmAGUAMQAwADMAMwBcAGIAXABmADEAXABmAHMAMgA4AFwAYwBmADEAIAAuAFsATQBhAGkAbgBTAGMAbwByAGUALgBFAFIAbwB1AG4AZAAuAFkAZQBhAHIAXQB9AFwAYgBcAGYAMQBcAGYAcwAyADgAXABjAGYAMQBcAHAAYQByAFwAcABhAHIAZABcAHAAbABhAGkAbgBcAHEAYwB7AFwAbABhAG4AZwAxADAANQA0AFwAbABhAG4AZwBmAGUAMQAwADUANABcAGIAXABmADEAXABmAHMAMgA4AFwAYwBmADEAIABcAHUAMwA2ADQAOABcACcAZQAwAFwAdQAzADYAMAA0AFwAJwBiADQAXAB1ADMANgAzADkAXAAnAGQANwBcAHUAMwA2ADIAOQBcACcAYwBkAFwAdQAzADYAMAA5AFwAJwBiADkAIABbAFMAdABhAHIAdABNAF0AfQB7AFwAbABhAG4AZwAxADAAMwAzAFwAbABhAG4AZwBmAGUAMQAwADMAMwBcAGIAXABmADEAXABmAHMAMgA4AFwAYwBmADEAIAAgAC0AIABbAFMAdABvAHAATQBdAH0AXABsAGEAbgBnADEAMAAzADMAXABsAGEAbgBnAGYAZQAxADAAMwAzAFwAYgBcAGYAMQBcAGYAcwAyADgAXABjAGYAMQBcAHAAYQByAFwAcABhAHIAZABcAHAAbABhAGkAbgBcAHEAYwB7AFwAbABhAG4AZwAxADAAMwAzAFwAbABhAG4AZwBmAGUAMQAwADMAMwBcAGIAXABmADEAXABmAHMAMgA4AFwAYwBmADEAIABbAE0AYQBpAG4AUwBjAG8AcgBlAC4ATwBmAGYAaQBjAGUALgBPAGYAZgBpAGMAZQBOAGEAbQBlAF0AfQBcAGwAYQBuAGcAMQAwADUANABcAGwAYQBuAGcAZgBlADEAMAA1ADQAXABmAHMAMgA0AFwAYwBmADEAXABwAGEAcgB9AA0ACgB9AA0ACgA=" SizeF="2000,170" LocationFloat="0, 0" Dpi="254" Font="TH SarabunIT๙, 14pt, style=Bold">
+          <StylePriority Ref="28" UseFont="false" />
+        </Item2>
+      </Controls>
+      <StylePriority Ref="29" UseFont="false" UseTextAlignment="false" />
+    </Item1>
+    <Item2 Ref="30" ControlType="TopMarginBand" Name="TopMargin" HeightF="50" TextAlignment="TopLeft" Dpi="254" Padding="0,0,0,0,254" />
+    <Item3 Ref="31" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="50" TextAlignment="TopLeft" Dpi="254" Padding="0,0,0,0,254" />
+  </Bands>
+  <StyleSheet>
+    <Item1 Ref="32" Name="Title" BorderStyle="Inset" Font="Times New Roman, 24pt" ForeColor="Black" BackColor="Transparent" BorderColor="Black" Sides="None" StringFormat="Near;Near;0;None;Character;Default" BorderWidthSerializable="1" />
+    <Item2 Ref="33" Name="FieldCaption" BorderStyle="Inset" Font="Times New Roman, 10pt, style=Bold" ForeColor="Black" BackColor="Transparent" BorderColor="Black" Sides="None" StringFormat="Near;Near;0;None;Character;Default" BorderWidthSerializable="1" />
+    <Item3 Ref="34" Name="PageInfo" BorderStyle="Inset" Font="Times New Roman, 8pt" ForeColor="Black" BackColor="Transparent" BorderColor="Black" Sides="None" StringFormat="Near;Near;0;None;Character;Default" BorderWidthSerializable="1" />
+    <Item4 Ref="35" Name="DataField" BorderStyle="Inset" Padding="5,5,0,0,254" Font="Times New Roman, 8pt" ForeColor="Black" BackColor="Transparent" BorderColor="Black" Sides="None" StringFormat="Near;Near;0;None;Character;Default" BorderWidthSerializable="1" />
+  </StyleSheet>
+  <ComponentStorage>
+    <Item1 Ref="0" Name="collectionDataSource1" ObjectTypeName="pes.Module.BusinessObjects.OwnScore" ObjectType="DevExpress.Persistent.Base.ReportsV2.CollectionDataSource,DevExpress.Persistent.Base.v17.1" TopReturnedRecords="0">
+      <Sorting Ref="36" />
+    </Item1>
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

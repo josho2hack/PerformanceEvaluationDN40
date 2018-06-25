@@ -33,7 +33,7 @@
             // 
             // searchOfficeUserAction
             // 
-            this.searchOfficeUserAction.Caption = "ค้นหา E-Office";
+            this.searchOfficeUserAction.Caption = "ค้นหาจาก ลสก.";
             this.searchOfficeUserAction.ConfirmationMessage = null;
             this.searchOfficeUserAction.Id = "searchOfficeUserAction";
             this.searchOfficeUserAction.NullValuePrompt = null;

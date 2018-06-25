@@ -29,6 +29,7 @@ namespace pes.Module.BusinessObjects
 
         string officeId;
         [Size(8)]
+        [XafDisplayName("รหัสหน่วยงาน")]
         public string OfficeId
         {
             get

@@ -105,18 +105,18 @@ namespace pes.Module.BusinessObjects
             }
         }
 
-        string poditionLevel;
+        string positionLevel;
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         [XafDisplayName("ระดับ")]
-        public string PoditionLevel
+        public string PositionLevel
         {
             get
             {
-                return poditionLevel;
+                return positionLevel;
             }
             set
             {
-                SetPropertyValue("PoditionLevel", ref poditionLevel, value);
+                SetPropertyValue("PositionLevel", ref positionLevel, value);
             }
         }
 

@@ -16,7 +16,7 @@ using DevExpress.ExpressApp.Security.Strategy;
 namespace pes.Module.BusinessObjects
 {
     //[DefaultClassOptions]
-    [XafDisplayName("รายละเอียดผลการประเมินของหน่วยงาน")]
+    [XafDisplayName("รายละเอียดผลการประเมิน")]
     [DefaultProperty("MainScore.Office")]
     [RuleCombinationOfPropertiesIsUnique("OwnScoreRule", DefaultContexts.Save, "MainScore,PointOfEvaluation,SubPointOfEvaluation")]
     public class OwnScore : XPObject
@@ -45,16 +45,83 @@ namespace pes.Module.BusinessObjects
                 bool modified = SetPropertyValue("Result", ref result, value);
                 if (!IsLoading && !IsSaving && modified)
                 {
+                    decimal PercentDif = 0;
                     if (AuditScore.Expect != 0)
                     {
-                        var diff = Result / AuditScore.Expect;
-                        if (diff != 0)
+                        PercentDif = Result / AuditScore.Expect;
+                    }
+                    if (PercentDif != 0)
+                    {
+                        if (PointOfEvaluation.No == 1)
                         {
-                            if (diff <= 0.96m) Score = 1;
-                            else if (diff <= 0.97m) Score = 1m + (diff - 0.96m) * 100m;
-                            else if (diff <= 0.98m) Score = 2m + (diff - 0.97m) * 100m;
-                            else if (diff <= 0.99m) Score = 3m + (diff - 0.98m) * 100m;
-                            else if (diff <= 1m) Score = 4m + (diff - 0.99m) * 100m;
+                            if (PercentDif <= 0.96m) score = 1;
+                            else if (PercentDif < 0.97m) score = 1m + (PercentDif - 0.96m) / 0.01m;
+                            else if (PercentDif < 0.98m) score = 2m + (PercentDif - 0.97m) / 0.01m;
+                            else if (PercentDif < 0.99m) score = 3m + (PercentDif - 0.98m) / 0.01m;
+                            else if (PercentDif < 1m) score = 4m + (PercentDif - 0.99m) / 0.01m;
+                            else Score = 5m;
+                        }
+                        if (PointOfEvaluation.No == 2 || PointOfEvaluation.No == 3 || PointOfEvaluation.No == 4 || PointOfEvaluation.No == 5 || PointOfEvaluation.No == 6 || PointOfEvaluation.No == 10)
+                        {
+                            if (PercentDif <= 0.6m) score = 1;
+                            else if (PercentDif < 0.7m) score = 1m + (PercentDif - 0.6m) / 0.1m;
+                            else if (PercentDif < 0.8m) score = 2m + (PercentDif - 0.7m) / 0.1m;
+                            else if (PercentDif < 0.9m) score = 3m + (PercentDif - 0.8m) / 0.1m;
+                            else if (PercentDif < 1m) score = 4m + (PercentDif - 0.9m) / 0.1m;
+                            else Score = 5m;
+                        }
+                        if (PointOfEvaluation.No == 7)
+                        {
+                            if (PercentDif <= 0.9m) score = 1;
+                            else if (PercentDif < 0.95m) score = 1m + (PercentDif - 0.9m) / 0.05m;
+                            else if (PercentDif < 1m) score = 2m + (PercentDif - 0.95m) / 0.05m;
+                            else if (PercentDif < 1.05m) score = 3m + (PercentDif - 1m) / 0.05m;
+                            else if (PercentDif < 1.1m) score = 4m + (PercentDif - 1.05m) / 0.05m;
+                            else Score = 5m;
+                        }
+                        if (PointOfEvaluation.No == 8)
+                        {
+                            if (PercentDif <= 0.9950m) score = 1;
+                            else if (PercentDif < 0.9975m) score = 1m + (PercentDif - 0.9950m) / 0.0025m;
+                            else if (PercentDif < 1.0000m) score = 2m + (PercentDif - 0.9975m) / 0.0025m;
+                            else if (PercentDif < 1.0025m) score = 3m + (PercentDif - 1.0000m) / 0.0025m;
+                            else if (PercentDif < 1.0050m) score = 4m + (PercentDif - 1.0025m) / 0.0025m;
+                            else Score = 5m;
+                        }
+                        if (PointOfEvaluation.No == 9)
+                        {
+                            if (PercentDif <= 0.9900m) score = 1;
+                            else if (PercentDif < 0.9950m) score = 1m + (PercentDif - 0.9900m) / 0.0050m;
+                            else if (PercentDif < 1.0000m) score = 2m + (PercentDif - 0.9950m) / 0.0050m;
+                            else if (PercentDif < 1.0050m) score = 3m + (PercentDif - 1.0000m) / 0.0050m;
+                            else if (PercentDif < 1.0100m) score = 4m + (PercentDif - 1.0050m) / 0.0050m;
+                            else Score = 5m;
+                        }
+                        if (PointOfEvaluation.No == 11)
+                        {
+                            if (PercentDif <= 0.10m) score = 1;
+                            else if (PercentDif < 0.20m) score = 1m + (PercentDif - 0.10m) / 0.10m;
+                            else if (PercentDif < 0.30m) score = 2m + (PercentDif - 0.20m) / 0.10m;
+                            else if (PercentDif < 0.40m) score = 3m + (PercentDif - 0.30m) / 0.10m;
+                            else if (PercentDif < 0.50m) score = 4m + (PercentDif - 0.40m) / 0.10m;
+                            else Score = 5m;
+                        }
+                        if (PointOfEvaluation.No == 12)
+                        {
+                            if (PercentDif <= 0.79m) score = 1;
+                            else if (PercentDif < 0.84m) score = 1m + (PercentDif - 0.79m) / 0.05m;
+                            else if (PercentDif < 0.89m) score = 2m + (PercentDif - 0.84m) / 0.05m;
+                            else if (PercentDif < 0.94m) score = 3m + (PercentDif - 0.89m) / 0.05m;
+                            else if (PercentDif < 0.99m) score = 4m + (PercentDif - 0.94m) / 0.05m;
+                            else Score = 5m;
+                        }
+                        if (PointOfEvaluation.No == 13 || PointOfEvaluation.No == 14 || PointOfEvaluation.No == 15 || PointOfEvaluation.No == 16)
+                        {
+                            if (PercentDif <= 0.20m) score = 1;
+                            else if (PercentDif < 0.40m) score = 1m + (PercentDif - 0.20m) / 0.20m;
+                            else if (PercentDif < 0.60m) score = 2m + (PercentDif - 0.40m) / 0.20m;
+                            else if (PercentDif < 0.80m) score = 3m + (PercentDif - 0.60m) / 0.20m;
+                            else if (PercentDif < 1.00m) score = 4m + (PercentDif - 0.80m) / 0.20m;
                             else Score = 5m;
                         }
                     }
@@ -152,7 +219,7 @@ namespace pes.Module.BusinessObjects
 
 
         AuditScore auditScore = null;
-        [XafDisplayName("คะแนนจากหน่วยกำกับ")]
+        [XafDisplayName("ผลการประเมินโดยหน่วยกำกับ")]
         public AuditScore AuditScore
         {
             get => auditScore;
@@ -176,7 +243,7 @@ namespace pes.Module.BusinessObjects
 
         Score mainScore;
         [Association("Score-OwnScores")]
-        [XafDisplayName("หนัาหลักคะแนน")]
+        [XafDisplayName("ผลการประเมินหลัก")]
         public Score MainScore
         {
             get => mainScore;
@@ -184,7 +251,7 @@ namespace pes.Module.BusinessObjects
         }
 
         [Association("OwnResults-OwnScores")]
-        [XafDisplayName("รายละเอียดผลการดำเนินการ")]
+        [XafDisplayName("ผลการดำเนินการรายเดือน")]
         public XPCollection<OwnResult> OwnResults
         {
             get

@@ -125,8 +125,8 @@
                                                                             <h1>
                                                                                 <cc4:ViewCaptionControl ID="VCC" runat="server" />
                                                                             </h1>
-                                                                            <cc2:NavigationHistoryActionContainer ID="VHC" runat="server" CssClass="NavigationHistoryLinks"
-                                                                                ContainerId="ViewsHistoryNavigation" Delimiter=" / " />
+                                                                            <%--<cc2:NavigationHistoryActionContainer ID="VHC" runat="server" CssClass="NavigationHistoryLinks"
+                                                                                ContainerId="ViewsHistoryNavigation" Delimiter=" / " />--%>
                                                                         </td>
                                                                         <td align="right">
                                                                             <cc2:ActionContainerHolder runat="server" ID="RNC" ContainerStyle="Links" Orientation="Horizontal"

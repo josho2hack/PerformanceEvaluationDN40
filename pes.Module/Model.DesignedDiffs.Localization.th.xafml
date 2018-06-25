@@ -31,6 +31,12 @@
     </Actions>
   </ActionDesign>
   <BOModel>
+    <Class Name="pes.Module.BusinessObjects.AuditResult">
+      <OwnMembers>
+        <Member Name="ResultMonthValue" DisplayFormat="{0:N3}" />
+        <Member Name="Year" DisplayFormat="{0:0000}" />
+      </OwnMembers>
+    </Class>
     <Class Name="pes.Module.BusinessObjects.AuditScore">
       <OwnMembers>
         <Member Name="DifExpectResult" DisplayFormat="{0:N3}" />
@@ -45,6 +51,7 @@
     <Class Name="pes.Module.BusinessObjects.DetailExpect">
       <OwnMembers>
         <Member Name="ExpectMonthValue" DisplayFormat="{0:N3}" />
+        <Member Name="Year" DisplayFormat="{0:0000}" />
       </OwnMembers>
     </Class>
     <Class Name="pes.Module.BusinessObjects.Dimension">
@@ -53,6 +60,11 @@
       </OwnMembers>
     </Class>
     <Class Name="pes.Module.BusinessObjects.EvaluationRound">
+      <OwnMembers>
+        <Member Name="Year" DisplayFormat="{0:0000}" />
+      </OwnMembers>
+    </Class>
+    <Class Name="pes.Module.BusinessObjects.OwnResult">
       <OwnMembers>
         <Member Name="Year" DisplayFormat="{0:0000}" />
       </OwnMembers>
@@ -77,8 +89,8 @@
     </Class>
     <Class Name="pes.Module.BusinessObjects.SubPointOfEvaluation">
       <OwnMembers>
-        <Member Name="Weight" DisplayFormat="{0:N0}%" />
-        <Member Name="WeightForST" DisplayFormat="{0:N0}%" />
+        <Member Name="Weight" DisplayFormat="{0:N2}%" />
+        <Member Name="WeightForST" DisplayFormat="{0:N2}%" />
       </OwnMembers>
     </Class>
   </BOModel>
@@ -101,10 +113,12 @@
   </Localization>
   <NavigationItems>
     <Items>
-      <Item Id="Default" Caption="เมนูหลัก">
+      <Item Id="Default" Caption="บันทึกข้อมูล">
         <Items>
-          <Item Id="Score_ListView" Caption="บันทึกผลการประเมินหน่วยงาน" />
-          <Item Id="AuditScore_ListView" Caption="บันทึกผลการประเมินโดยหน่วยกำกับ" />
+          <Item Id="Score_ListView" Caption="บันทึกผลการปฏิบัติงาน" />
+          <Item Id="OwnResult_ListView" Caption="บันทึกผลการดำเนินการรายเดือน" />
+          <Item Id="AuditScore_ListView" Caption="บันทึกผลการปฏิบัติงานโดยหน่วยกำกับ" />
+          <Item Id="AuditResult_ListView" Caption="บันทึกผลการดำเนินการรายเดือนโดยหน่วยกำกับ" />
         </Items>
       </Item>
       <Item Id="Reports" Caption="รายงาน">

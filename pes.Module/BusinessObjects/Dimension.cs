@@ -38,6 +38,7 @@ namespace pes.Module.BusinessObjects
         }
 
         [Association("Dimension-Evaluations")]
+        [XafDisplayName("การประเมิน")]
         public XPCollection<Evaluation> Evaluations
         {
             get

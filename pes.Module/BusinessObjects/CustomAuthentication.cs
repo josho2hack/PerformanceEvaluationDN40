@@ -62,7 +62,7 @@ namespace CustomLogonParametersExample.Module
                         employee.LastName = user.LNAME;
                         employee.Email = user.EMAIL;
                         employee.Position = user.POSITION_M;
-                        employee.PoditionLevel = user.CLASS_NEW;
+                        employee.PositionLevel = user.CLASS_NEW;
 
                         Office office = objectSpace.FindObject<Office>(new BinaryOperator("OfficeId", user.OFFICEID));
                         employee.Office = office;

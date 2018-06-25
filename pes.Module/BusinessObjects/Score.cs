@@ -15,7 +15,7 @@ using DevExpress.Persistent.Validation;
 namespace pes.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [XafDisplayName("บันทึกผลการประเมินหน่วยงาน")]
+    [XafDisplayName("ผลการประเมินหน่วยงาน")]
     [RuleCombinationOfPropertiesIsUnique("ScoreRule", DefaultContexts.Save, "Office,ERound")]
     public class Score : XPObject
     { 

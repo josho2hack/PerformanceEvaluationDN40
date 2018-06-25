@@ -152,6 +152,7 @@
       <Name>System</Name>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data">
       <Name>System.Data</Name>
       <Private>False</Private>
@@ -162,6 +163,9 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
@@ -222,6 +226,15 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Reports\DimentionReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DimentionReport.Designer.cs">
+      <DependentUpon>DimentionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\OwnerReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ScoreReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -249,6 +262,12 @@
       <DependentUpon>Module.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\DimentionReport.resx">
+      <DependentUpon>DimentionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\OwnerReport.resx">
+      <DependentUpon>OwnerReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ScoreReport.resx">
       <DependentUpon>ScoreReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +285,7 @@
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Content Include="Reports\THSarabunIT๙.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -342,6 +362,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="UnusableNodes3_th.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes6.xml">
       <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </None>

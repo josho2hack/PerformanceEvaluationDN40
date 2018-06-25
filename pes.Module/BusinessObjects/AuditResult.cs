@@ -15,7 +15,7 @@ using DevExpress.Persistent.Validation;
 namespace pes.Module.BusinessObjects
 {
     [NavigationItem("pes")]
-    [XafDisplayName("ผลการดำเนินการรายเดือน")]
+    [XafDisplayName("ผลการดำเนินการรายเดือนโดยหน่วยกำกับ")]
     public class AuditResult : XPObject
     {
         public AuditResult(Session session)
@@ -54,6 +54,7 @@ namespace pes.Module.BusinessObjects
         }
 
         Office office;
+        [XafDisplayName("หน่วยงาน")]
         //[Association("Office-AuditResults")]
         public Office Office
         {
@@ -62,6 +63,7 @@ namespace pes.Module.BusinessObjects
         }
 
         PointOfEvaluation poE;
+        [XafDisplayName("ตัวชี้วัด")]
         //[Association("PointOfEvaluation-AuditResults")]
         public PointOfEvaluation PoE
         {
@@ -70,6 +72,7 @@ namespace pes.Module.BusinessObjects
         }
 
         SubPointOfEvaluation sPoE;
+        [XafDisplayName("ตัวชี้วัดย่อย")]
         //[Association("SubPointOfEvaluation-AuditResults")]
         public SubPointOfEvaluation SPoE
         {
@@ -78,6 +81,7 @@ namespace pes.Module.BusinessObjects
         }
 
         [Association("AuditResults-AuditScores")]
+        [XafDisplayName("ผลการประเมินโดยหน่วยกำกับ")]
         public XPCollection<AuditScore> AuditScores
         {
             get

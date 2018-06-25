@@ -25,36 +25,48 @@
         <Member Name="UserName" Caption="รหัสผู้ใช้" />
       </OwnMembers>
     </Class>
-    <Class Name="pes.Module.BusinessObjects.AuditScore">
+    <Class Name="pes.Module.BusinessObjects.AuditResult" ImageName="Action_Inline_Edit" />
+    <Class Name="pes.Module.BusinessObjects.AuditScore" ImageName="ActionGroup_EasyTestRecorder">
       <OwnMembers>
-        <Member Name="DetailExpects" DataSourceCriteria="[PoE] = [AuditScore.OwnScore.PointOfEvaluation.No] And [ExpectYear] = [AuditScore.OwnScore.PointOfEvaluation.VRound.Year] And [ExpectOffice] = [AuditScore.OwnScore.MainScore.Office]" />
         <Member Name="Result" ImmediatePostData="True" />
       </OwnMembers>
     </Class>
-    <Class Name="pes.Module.BusinessObjects.EvaluationRound">
+    <Class Name="pes.Module.BusinessObjects.DetailExpect" ImageName="Action_Inline_Edit" />
+    <Class Name="pes.Module.BusinessObjects.Dimension" ImageName="Action_ShowItemOnDashboard" />
+    <Class Name="pes.Module.BusinessObjects.Evaluation" ImageName="Action_Show_PivotGrid_Designer" />
+    <Class Name="pes.Module.BusinessObjects.EvaluationRound" ImageName="BO_Scheduler">
       <OwnMembers>
         <Member Name="Year" ImmediatePostData="True" />
       </OwnMembers>
     </Class>
-    <Class Name="pes.Module.BusinessObjects.OpenSendScore">
+    <Class Name="pes.Module.BusinessObjects.Office" ImageName="BO_Organization" />
+    <Class Name="pes.Module.BusinessObjects.OpenSendScore" ImageName="Action_Exit">
       <OwnMembers>
         <Member Name="Open" ImmediatePostData="True" />
       </OwnMembers>
     </Class>
-    <Class Name="pes.Module.BusinessObjects.OwnScore">
+    <Class Name="pes.Module.BusinessObjects.OwnResult" ImageName="Action_Grand_Totals_Column" />
+    <Class Name="pes.Module.BusinessObjects.OwnScore" ImageName="Action_Grand_Totals_Row">
       <OwnMembers>
         <Member Name="PointOfEvaluation" ImmediatePostData="True" />
         <Member Name="Result" ImmediatePostData="True" />
         <Member Name="SubPointOfEvaluation" ImmediatePostData="True" />
       </OwnMembers>
     </Class>
+    <Class Name="pes.Module.BusinessObjects.PointOfEvaluation" ImageName="Action_Chart_ShowDesigner" />
+    <Class Name="pes.Module.BusinessObjects.Score" ImageName="Action_Dashboard_ShowDesigner" />
+    <Class Name="pes.Module.BusinessObjects.SubPointOfEvaluation" ImageName="Action_Show_PivotGrid_Designer" />
+    <Class Name="pes.Module.BusinessObjects.UnitOfPoint" ImageName="Action_Clear_Settings" />
   </BOModel>
   <NavigationItems>
     <Items>
-      <Item Id="Default" Index="0">
+      <Item Id="Default" Index="0" ImageName="Action_Edit">
         <Items>
-          <Item Id="Score_ListView" Index="0" />
-          <Item Id="AuditScore_ListView" ViewId="AuditScore_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+          <Item Id="Score_ListView" Index="0" ImageName="Action_Inline_Edit" Visible="False" />
+          <Item Id="OwnResult_ListView" ViewId="OwnResult_ListView" ObjectKey="" Index="1" IsNewNode="True" />
+          <Item Id="AuditScore_ListView" ViewId="AuditScore_ListView" ObjectKey="" Index="2" Visible="False" IsNewNode="True" />
+          <Item Id="DetailExpect_ListView" ViewId="DetailExpect_ListView" ObjectKey="" Index="3" IsNewNode="True" />
+          <Item Id="AuditResult_ListView" ViewId="AuditResult_ListView" ObjectKey="" Index="4" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="KPI" Index="2" Visible="False" />
@@ -74,7 +86,10 @@
           <Item Id="PointOfEvaluation_ListView" Index="2" />
           <Item Id="EvaluationRound_ListView" Index="3" />
           <Item Id="OpenSendScore" ViewId="OpenSendScore_DetailView" ImageName="Action_Exit" Index="4" IsNewNode="True" />
+          <Item Id="AuditResult_ListView" Removed="True" />
           <Item Id="AuditScore_ListView" Removed="True" />
+          <Item Id="DetailExpect_ListView" Removed="True" />
+          <Item Id="OwnResult_ListView" Removed="True" />
         </Items>
       </Item>
       <Item Id="User" Index="" />

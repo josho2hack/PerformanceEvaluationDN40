@@ -28,9 +28,13 @@ namespace pes.Web {
         protected void Session_Start(Object sender, EventArgs e) {
 		    Tracing.Initialize();
             WebApplication.SetInstance(Session, new pesAspNetApplication());
-            WebApplication.PreferredApplicationWindowTemplateType = TemplateType.Horizontal;
+
             //DevExpress.ExpressApp.Web.Templates.DefaultVerticalTemplateContentNew.ClearSizeLimit();
             //WebApplication.Instance.SwitchToNewStyle();
+
+            WebApplication.Instance.Settings.DefaultTemplateContentPath = "DefaultTemplateContent.ascx";
+            WebApplication.PreferredApplicationWindowTemplateType = TemplateType.Horizontal;
+
             if (ConfigurationManager.ConnectionStrings["ConnectionString"] != null) {
                 WebApplication.Instance.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             }

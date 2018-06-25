@@ -54,6 +54,7 @@ namespace pes.Module.BusinessObjects
         }
 
         [Association("Evaluation-PointOfEvaluations")]
+        [XafDisplayName("ตัวชี้วัด")]
         public XPCollection<PointOfEvaluation> PointOfEvaluations
         {
             get

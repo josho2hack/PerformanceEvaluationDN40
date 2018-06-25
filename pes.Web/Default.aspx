@@ -24,6 +24,12 @@
             max-height: 32px;
             max-width: 32px;
         }
+
+        @font-face 
+        {
+            font-family: "THSarabunIT๙";
+            src: url(Fonts/THSarabunIT๙.ttf);
+        }
     </style>
 </head>
 <body class="VerticalTemplate">

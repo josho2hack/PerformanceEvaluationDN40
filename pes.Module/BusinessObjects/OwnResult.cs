@@ -15,7 +15,7 @@ using DevExpress.Persistent.Validation;
 namespace pes.Module.BusinessObjects
 {
     [NavigationItem("pes")]
-    [XafDisplayName("รายละเอียดผลการดำเนินการ")]
+    [XafDisplayName("ผลการดำเนินการรายเดือน")]
     public class OwnResult : BaseObject
     { 
         public OwnResult(Session session)
@@ -54,6 +54,7 @@ namespace pes.Module.BusinessObjects
         }
 
         Office office;
+        [XafDisplayName("หน่วยงาน")]
         //[Association("Office-OwnResults")]
         public Office Office
         {
@@ -62,6 +63,7 @@ namespace pes.Module.BusinessObjects
         }
 
         PointOfEvaluation poE;
+        [XafDisplayName("ตัวชี้วัด")]
         //[Association("PointOfEvaluation-OwnResults")]
         public PointOfEvaluation PoE
         {
@@ -70,6 +72,7 @@ namespace pes.Module.BusinessObjects
         }
 
         SubPointOfEvaluation sPoE;
+        [XafDisplayName("ตัวชี้วัดย่อย")]
         //[Association("SubPointOfEvaluation-OwnResults")]
         public SubPointOfEvaluation SPoE
         {
@@ -78,6 +81,7 @@ namespace pes.Module.BusinessObjects
         }
 
         [Association("OwnResults-OwnScores")]
+        [XafDisplayName("รายละเอียดผลการประเมิน")]
         public XPCollection<OwnScore> OwnScores
         {
             get
