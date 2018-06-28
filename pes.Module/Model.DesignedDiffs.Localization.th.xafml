@@ -66,6 +66,7 @@
     </Class>
     <Class Name="pes.Module.BusinessObjects.OwnResult">
       <OwnMembers>
+        <Member Name="ResultMonthValue" DisplayFormat="{0:N4}" />
         <Member Name="Year" DisplayFormat="{0:0000}" />
       </OwnMembers>
     </Class>
@@ -118,6 +119,7 @@
           <Item Id="Score_ListView" Caption="บันทึกผลการปฏิบัติงาน" />
           <Item Id="OwnResult_ListView" Caption="บันทึกผลการดำเนินการรายเดือน" />
           <Item Id="AuditScore_ListView" Caption="บันทึกผลการปฏิบัติงานโดยหน่วยกำกับ" />
+          <Item Id="OwnResult_ListView_All" Caption="บันทึกผลการดำเนินการรายเดือน (ทั้งหมด)" />
           <Item Id="AuditResult_ListView" Caption="บันทึกผลการดำเนินการรายเดือนโดยหน่วยกำกับ" />
         </Items>
       </Item>
@@ -171,6 +173,7 @@
         <ColumnInfo Id="Title" Caption="รอบการประเมิน" />
       </Columns>
     </ListView>
+    <ListView Id="OwnResult_ListView_All" Caption="ผลการดำเนินการรายเดือน (ทั้งหมด)" />
     <DetailView Id="PointOfEvaluation_DetailView">
       <Layout>
         <LayoutGroup Id="Main">

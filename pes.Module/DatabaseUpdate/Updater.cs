@@ -1134,7 +1134,8 @@ namespace pes.Module.DatabaseUpdate {
                 adminRole.Name = "Administrators";
             }
             adminRole.IsAdministrative = true;
-			userAdmin.Roles.Add(adminRole);
+            //adminRole.AddNavigationPermission(@"Application/NavigationItems/Items/Default/Items/OwnResult_ListView", SecurityPermissionState.Deny);
+            userAdmin.Roles.Add(adminRole);
             ObjectSpace.CommitChanges(); //This line persists created object(s).
         }
         // End---------------------------Create Database Initialization

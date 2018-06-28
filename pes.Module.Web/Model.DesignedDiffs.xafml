@@ -11,4 +11,9 @@
       <RegisteredPropertyEditor PropertyType="System.Drawing.Color" EditorType="DevExpress.ExpressApp.Web.Editors.ASPx.ASPxColorPickerPropertyEditor" />
     </PropertyEditor>
   </ViewItems>
+  <Views>
+    <ListView Id="AuditResult_ListView" InlineEditMode="Batch" />
+    <ListView Id="DetailExpect_ListView" InlineEditMode="Batch" />
+    <ListView Id="OwnResult_ListView" InlineEditMode="Batch" />
+  </Views>
 </Application>

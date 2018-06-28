@@ -65,6 +65,7 @@
           <Item Id="Score_ListView" Index="0" ImageName="Action_Inline_Edit" Visible="False" />
           <Item Id="OwnResult_ListView" ViewId="OwnResult_ListView" ObjectKey="" Index="1" IsNewNode="True" />
           <Item Id="AuditScore_ListView" ViewId="AuditScore_ListView" ObjectKey="" Index="2" Visible="False" IsNewNode="True" />
+          <Item Id="OwnResult_ListView_All" ObjectKey="" Index="2" ViewId="OwnResult_ListView_All" IsNewNode="True" />
           <Item Id="DetailExpect_ListView" ViewId="DetailExpect_ListView" ObjectKey="" Index="3" IsNewNode="True" />
           <Item Id="AuditResult_ListView" ViewId="AuditResult_ListView" ObjectKey="" Index="4" IsNewNode="True" />
         </Items>
@@ -72,11 +73,11 @@
       <Item Id="KPI" Index="2" Visible="False" />
       <Item Id="Reports" Index="3" Visible="True">
         <Items>
-          <Item Id="Score_ListView_All" ViewId="Score_ListView" ObjectKey="" Index="0" Visible="False" IsNewNode="True" />
-          <Item Id="AuditScore_ListView_All" ViewId="AuditScore_ListView" ObjectKey="" Index="1" Visible="False" IsNewNode="True" />
+          <Item Id="Score_ListView_All" ViewId="Score_ListView" ObjectKey="" Index="0" Visible="True" IsNewNode="True" />
+          <Item Id="AuditScore_ListView_All" ViewId="AuditScore_ListView" ObjectKey="" Index="1" Visible="True" IsNewNode="True" />
           <Item Id="Analysis_ListView" Visible="False" />
           <Item Id="Dashboards" Visible="False" />
-          <Item Id="ReportsV2" Visible="True" />
+          <Item Id="ReportsV2" Visible="False" />
         </Items>
       </Item>
       <Item Id="pes" Index="4">
@@ -103,6 +104,28 @@
     <SchemaModule Name="SystemModule" Version="17.1.3.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <ListView Id="AuditResult_ListView" AllowDelete="False" AllowNew="False" AllowEdit="True" IsGroupPanelVisible="False">
+      <Columns>
+        <ColumnInfo Id="PoE" Width="293" Index="0" />
+        <ColumnInfo Id="PoE.No" PropertyName="PoE.No" Index="1" Width="78" SortOrder="Ascending" GroupIndex="2" IsNewNode="True" />
+        <ColumnInfo Id="ResultMonth" Width="191" Index="2" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="ResultMonthValue" Width="129" Index="3" />
+        <ColumnInfo Id="Year" Width="114" SortOrder="Descending" GroupIndex="1" Index="4" />
+        <ColumnInfo Id="Office" Width="91" SortOrder="Ascending" GroupIndex="0" Index="5" />
+        <ColumnInfo Id="SPoE" SortOrder="Ascending" GroupIndex="3" Index="6" />
+      </Columns>
+    </ListView>
+    <ListView Id="DetailExpect_ListView" AllowDelete="False" AllowNew="False" AllowEdit="True" IsGroupPanelVisible="False">
+      <Columns>
+        <ColumnInfo Id="PoE.No" PropertyName="PoE.No" Index="-1" SortOrder="Ascending" GroupIndex="2" IsNewNode="True" />
+        <ColumnInfo Id="PoE" Index="0" Width="295" />
+        <ColumnInfo Id="ExpectMonth" Width="155" Index="1" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="ExpectMonthValue" Index="2" Width="199" />
+        <ColumnInfo Id="Year" SortOrder="Descending" GroupIndex="1" Index="3" />
+        <ColumnInfo Id="Office" SortOrder="Ascending" GroupIndex="0" Index="4" />
+        <ColumnInfo Id="SPoE" SortOrder="Ascending" GroupIndex="3" />
+      </Columns>
+    </ListView>
     <DetailView Id="Dimension_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
@@ -185,6 +208,50 @@
     <DetailView Id="OpenSendScore_DetailView" AllowNew="False" AllowDelete="False" />
     <ListView Id="OpenSendScore_ListView" AllowNew="False" AllowDelete="False" />
     <ListView Id="OpenSendScore_LookupListView" AllowNew="False" AllowDelete="False" />
+    <DetailView Id="OwnResult_DetailView" AllowDelete="False" AllowNew="False">
+      <Items>
+        <PropertyEditor Id="Office" AllowEdit="False" />
+        <PropertyEditor Id="OwnScores" AllowEdit="False" />
+        <PropertyEditor Id="PoE" AllowEdit="False" />
+        <PropertyEditor Id="ResultMonth" AllowEdit="False" />
+        <PropertyEditor Id="SPoE" AllowEdit="False" />
+        <PropertyEditor Id="Year" AllowEdit="False" />
+      </Items>
+    </DetailView>
+    <ListView Id="OwnResult_ListView" IsGroupPanelVisible="False" ShowAutoFilterRow="False" AllowDelete="False" AllowNew="False" AllowEdit="True" Criteria="[OwnScores][[MainScore.Office.Employees][[Oid] = CurrentUserId()]]">
+      <Columns>
+        <ColumnInfo Id="PoE" Index="0" Width="240" SortOrder="None" GroupIndex="-1" />
+        <ColumnInfo Id="PoE.No" PropertyName="PoE.No" Index="1" Width="83" SortIndex="-1" SortOrder="Ascending" GroupIndex="2" IsNewNode="True" />
+        <ColumnInfo Id="SPoE" Index="2" Width="174" SortOrder="Ascending" GroupIndex="3" />
+        <ColumnInfo Id="ResultMonth" Width="135" Index="3" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="ResultMonthValue" Width="195" Index="4" />
+        <ColumnInfo Id="Year" Width="94" SortIndex="-1" SortOrder="Descending" GroupIndex="1" Index="5" />
+        <ColumnInfo Id="Office" Width="84" SortOrder="Ascending" GroupIndex="0" Index="6" />
+      </Columns>
+    </ListView>
+    <ListView Id="OwnResult_ListView_All" ClassName="pes.Module.BusinessObjects.OwnResult" AllowDelete="False" AllowNew="False" AllowEdit="True" Criteria="" IsGroupPanelVisible="False" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Office.OfficeId" PropertyName="Office.OfficeId" Index="-1" SortOrder="None" GroupIndex="-1" IsNewNode="True" />
+        <ColumnInfo Id="Office" PropertyName="Office" Width="84" SortOrder="Ascending" GroupIndex="0" Index="0" AllowEdit="False" IsNewNode="True" />
+        <ColumnInfo Id="PoE" PropertyName="PoE" Width="240" Index="1" AllowEdit="False" IsNewNode="True" />
+        <ColumnInfo Id="SPoE" PropertyName="SPoE" Width="174" Index="2" AllowEdit="False" IsNewNode="True" />
+        <ColumnInfo Id="PoE.No" PropertyName="PoE.No" Index="3" Width="83" SortOrder="Ascending" GroupIndex="2" AllowEdit="False" IsNewNode="True" />
+        <ColumnInfo Id="ResultMonth" PropertyName="ResultMonth" Width="135" Index="4" SortIndex="0" SortOrder="Ascending" AllowEdit="False" IsNewNode="True" />
+        <ColumnInfo Id="ResultMonthValue" PropertyName="ResultMonthValue" Width="195" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="Year" PropertyName="Year" Width="94" SortOrder="Descending" GroupIndex="1" Index="6" AllowEdit="False" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="OwnResult_OwnScores_ListView">
+      <Columns>
+        <ColumnInfo Id="PointOfEvaluation" Width="141" Index="0" />
+        <ColumnInfo Id="SubPointOfEvaluation" Width="97" Index="1" />
+        <ColumnInfo Id="Result" Width="98" Index="2" />
+        <ColumnInfo Id="Score" Width="86" Index="3" />
+        <ColumnInfo Id="WeightScore" Width="103" Index="4" />
+        <ColumnInfo Id="AuditScore" Width="143" />
+        <ColumnInfo Id="MainScore" Width="110" />
+      </Columns>
+    </ListView>
     <DetailView Id="PointOfEvaluation_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">

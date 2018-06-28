@@ -195,11 +195,11 @@
     <Compile Include="BusinessObjects\SubPointOfEvaluation.cs" />
     <Compile Include="BusinessObjects\TaxCollection.cs" />
     <Compile Include="BusinessObjects\UnitOfPoint.cs" />
-    <Compile Include="Controllers\CreateFormController.cs">
+    <Compile Include="Controllers\InitialDataEntry.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controllers\CreateFormController.Designer.cs">
-      <DependentUpon>CreateFormController.cs</DependentUpon>
+    <Compile Include="Controllers\InitialDataEntry.Designer.cs">
+      <DependentUpon>InitialDataEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MyPrintSelectionBaseController.cs">
       <SubType>Component</SubType>
@@ -250,8 +250,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\CreateFormController.resx">
-      <DependentUpon>CreateFormController.cs</DependentUpon>
+    <EmbeddedResource Include="Controllers\InitialDataEntry.resx">
+      <DependentUpon>InitialDataEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\SearcheEofficeUserController.resx">
       <DependentUpon>SearcheEofficeUserController.cs</DependentUpon>
