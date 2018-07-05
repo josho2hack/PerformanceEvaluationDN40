@@ -206,12 +206,6 @@
     <Compile Include="Controllers\InitialDataEntry.Designer.cs">
       <DependentUpon>InitialDataEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MyPrintSelectionBaseController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\MyPrintSelectionBaseController.Designer.cs">
-      <DependentUpon>MyPrintSelectionBaseController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\SearcheEofficeUserController.cs">
       <SubType>Component</SubType>
     </Compile>

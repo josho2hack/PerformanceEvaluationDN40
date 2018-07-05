@@ -460,5 +460,32 @@ namespace pes.Module.Controllers
             }
             //ObjectSpace.CommitChanges();
         }
+
+        private void InitialDataEntryController_Activated(object sender, EventArgs e)
+        {
+            //เริ่มสร้าง
+            OpenSendScore oss = ObjectSpace.FindObject<OpenSendScore>(CriteriaOperator.Parse("Open = ?", true));
+            if (oss != null && oss.Open)
+            {
+                Employee owner = ObjectSpace.GetObjectByKey<Employee>(SecuritySystem.CurrentUserId);
+                //Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("Office= ? AND ERound = ?", owner.Office, oss.ERound));
+                Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("ERound = ? AND Office=?", oss.ERound, 995));
+                if (oscore == null)
+                {
+                    CreateAll(oss, owner);
+                }
+                else
+                {
+                    MessageOptions options = new MessageOptions();
+                    options.Duration = 2000;
+                    options.Message = string.Format("{0} มีการสร้างตารางข้อมูลแล้ว!!!", oss.ERound.Title);
+                    options.Type = InformationType.Error;
+                    options.Web.Position = InformationPosition.Top;
+                    options.Win.Caption = "Error";
+                    options.Win.Type = WinMessageType.Flyout;
+                    Application.ShowViewStrategy.ShowMessage(options);
+                }
+            }
+        }
     }
 }

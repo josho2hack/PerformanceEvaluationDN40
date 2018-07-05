@@ -48,8 +48,10 @@
             // InitialDataEntryController
             // 
             this.Actions.Add(this.CreateERoundInitialAction);
+            this.TargetObjectType = typeof(pes.Module.BusinessObjects.OpenSendScore);
             this.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.Activated += new System.EventHandler(this.InitialDataEntryController_Activated);
 
         }
 
