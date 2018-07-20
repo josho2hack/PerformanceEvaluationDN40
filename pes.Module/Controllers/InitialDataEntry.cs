@@ -215,25 +215,25 @@ namespace pes.Module.Controllers
                                     sexpect.SPoE = soe;
                                     sexpect.Year = oss.ERound.Year;
                                     sexpect.ExpectMonth = i;
-                                    if (poe.No == 1)
-                                    {
-                                        Emonth j;
-                                        if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                        {
-                                            j = i + 10;
-                                        }
-                                        else
-                                        {
-                                            j = i - 2;
-                                        }
-                                        var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                        var tax = _download_serialized_json_data<Rootobject>(url);
-                                        var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                        if (taxOwn != null)
-                                        {
-                                            sexpect.ExpectMonthValue = taxOwn.CMCYforcast;
-                                        }
-                                    }
+                                    //if (poe.No == 1)
+                                    //{
+                                    //    Emonth j;
+                                    //    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
+                                    //    {
+                                    //        j = i + 10;
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        j = i - 2;
+                                    //    }
+                                    //    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
+                                    //    var tax = _download_serialized_json_data<Rootobject>(url);
+                                    //    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
+                                    //    if (taxOwn != null)
+                                    //    {
+                                    //        sexpect.ExpectMonthValue = taxOwn.CMCYforcast;
+                                    //    }
+                                    //}
                                     sexpect.AuditScores.Add(asoc);
                                     sexpect.Save();
 
@@ -250,7 +250,7 @@ namespace pes.Module.Controllers
                                     }
                                     if (!sexpectHavedAudit)
                                     {
-                                        sexpect.AuditScores.Add(asoc); 
+                                        sexpect.AuditScores.Add(asoc);
                                     }
                                     sexpect.Save();
 
@@ -282,25 +282,25 @@ namespace pes.Module.Controllers
                                     sor.SPoE = soe;
                                     sor.Year = oss.ERound.Year;
                                     sor.ResultMonth = i;
-                                    if (poe.No == 1)
-                                    {
-                                        Emonth j;
-                                        if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                        {
-                                            j = i + 10;
-                                        }
-                                        else
-                                        {
-                                            j = i - 2;
-                                        }
-                                        var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                        var tax = _download_serialized_json_data<Rootobject>(url);
-                                        var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                        if (taxOwn != null)
-                                        {
-                                            sor.ResultMonthValue = taxOwn.CMcurrentYear;
-                                        }
-                                    }
+                                    //if (poe.No == 1)
+                                    //{
+                                    //    Emonth j;
+                                    //    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
+                                    //    {
+                                    //        j = i + 10;
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        j = i - 2;
+                                    //    }
+                                    //    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
+                                    //    var tax = _download_serialized_json_data<Rootobject>(url);
+                                    //    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
+                                    //    if (taxOwn != null)
+                                    //    {
+                                    //        sor.ResultMonthValue = taxOwn.CMcurrentYear;
+                                    //    }
+                                    //}
                                     sor.OwnScores.Add(soc);
                                     sor.Save();
 
@@ -352,25 +352,25 @@ namespace pes.Module.Controllers
                                     asResult.SPoE = soe;
                                     asResult.Year = oss.ERound.Year;
                                     asResult.ResultMonth = i;
-                                    if (poe.No == 1)
-                                    {
-                                        Emonth j;
-                                        if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                        {
-                                            j = i + 10;
-                                        }
-                                        else
-                                        {
-                                            j = i - 2;
-                                        }
-                                        var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                        var tax = _download_serialized_json_data<Rootobject>(url);
-                                        var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                        if (taxOwn != null)
-                                        {
-                                            asResult.ResultMonthValue = taxOwn.CMcurrentYear;
-                                        }
-                                    }
+                                    //if (poe.No == 1)
+                                    //{
+                                    //    Emonth j;
+                                    //    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
+                                    //    {
+                                    //        j = i + 10;
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        j = i - 2;
+                                    //    }
+                                    //    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
+                                    //    var tax = _download_serialized_json_data<Rootobject>(url);
+                                    //    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
+                                    //    if (taxOwn != null)
+                                    //    {
+                                    //        asResult.ResultMonthValue = taxOwn.CMcurrentYear;
+                                    //    }
+                                    //}
                                     asResult.AuditScores.Add(asoc);
                                     asResult.Save();
 
@@ -428,215 +428,213 @@ namespace pes.Module.Controllers
                             //ObjectSpace.CommitChanges();
                         }
                     }//End SupPointOfEvaluation
-                    else
+
+                    sum = 0m;
+                    for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
                     {
-                        sum = 0m;
-                        for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                        DetailExpect expect = ObjectSpace.FindObject<DetailExpect>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ExpectMonth=?", office, poe, null, oss.ERound.Year, i));
+                        if (expect == null)
                         {
-                            DetailExpect expect = ObjectSpace.FindObject<DetailExpect>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ExpectMonth=?", office, poe, null, oss.ERound.Year, i));
-                            if (expect == null)
+
+                            expect = ObjectSpace.CreateObject<DetailExpect>();
+                            expect.Office = office;
+                            expect.PoE = poe;
+                            expect.Year = oss.ERound.Year;
+                            expect.ExpectMonth = i;
+                            if (poe.No == 1)
                             {
-
-                                expect = ObjectSpace.CreateObject<DetailExpect>();
-                                expect.Office = office;
-                                expect.PoE = poe;
-                                expect.Year = oss.ERound.Year;
-                                expect.ExpectMonth = i;
-                                if (poe.No == 1)
+                                Emonth j;
+                                if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
                                 {
-                                    Emonth j;
-                                    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                    {
-                                        j = i + 10;
-                                    }
-                                    else
-                                    {
-                                        j = i - 2;
-                                    }
-                                    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                    var tax = _download_serialized_json_data<Rootobject>(url);
-                                    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                    if (taxOwn != null)
-                                    {
-                                        expect.ExpectMonthValue = taxOwn.CMCYforcast;
-                                    }
+                                    j = i + 10;
                                 }
+                                else
+                                {
+                                    j = i - 2;
+                                }
+                                var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
+                                var tax = _download_serialized_json_data<Rootobject>(url);
+                                var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
+                                if (taxOwn != null)
+                                {
+                                    expect.ExpectMonthValue = taxOwn.CMCYforcast;
+                                }
+                            }
 
+                            expect.AuditScores.Add(aoc);
+                            expect.Save();
+
+                            aoc.DetailExpects.Add(expect);
+                            sum += expect.ExpectMonthValue;
+                        }
+                        else
+                        {
+                            bool expectHavedAudit = false;
+                            foreach (AuditScore au in expect.AuditScores)
+                            {
+                                if (au == aoc) expectHavedAudit = true;
+                            }
+                            if (!expectHavedAudit)
+                            {
                                 expect.AuditScores.Add(aoc);
-                                expect.Save();
+                            }
+                            expect.Save();
 
+                            bool aocHavedExpect = false;
+                            foreach (DetailExpect dt in aoc.DetailExpects)
+                            {
+                                if (dt == expect) aocHavedExpect = true;
+                            }
+                            if (!aocHavedExpect)
+                            {
                                 aoc.DetailExpects.Add(expect);
-                                sum += expect.ExpectMonthValue;
                             }
-                            else
-                            {
-                                bool expectHavedAudit = false;
-                                foreach (AuditScore au in expect.AuditScores)
-                                {
-                                    if (au == aoc) expectHavedAudit = true;
-                                }
-                                if (!expectHavedAudit)
-                                {
-                                    expect.AuditScores.Add(aoc);
-                                }
-                                expect.Save();
-
-                                bool aocHavedExpect = false;
-                                foreach (DetailExpect dt in aoc.DetailExpects)
-                                {
-                                    if (dt == expect) aocHavedExpect = true;
-                                }
-                                if (!aocHavedExpect)
-                                {
-                                    aoc.DetailExpects.Add(expect);
-                                }
-                                sum += expect.ExpectMonthValue;
-                            }
+                            sum += expect.ExpectMonthValue;
                         }
-                        aoc.Expect = sum;//End Crete DetailExpect.
-                                         //ObjectSpace.CommitChanges();
+                    }
+                    aoc.Expect = sum;//End Crete DetailExpect.
+                                     //ObjectSpace.CommitChanges();
 
-                        sum = 0m;
-                        for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                    sum = 0m;
+                    for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                    {
+                        OwnResult or = ObjectSpace.FindObject<OwnResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, null, oss.ERound.Year, i));
+                        if (or == null)
                         {
-                            OwnResult or = ObjectSpace.FindObject<OwnResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, null, oss.ERound.Year, i));
-                            if (or == null)
+                            or = ObjectSpace.CreateObject<OwnResult>();
+                            or.Office = office;
+                            or.PoE = poe;
+                            or.Year = oss.ERound.Year;
+                            or.ResultMonth = i;
+                            if (poe.No == 1)
                             {
-                                or = ObjectSpace.CreateObject<OwnResult>();
-                                or.Office = office;
-                                or.PoE = poe;
-                                or.Year = oss.ERound.Year;
-                                or.ResultMonth = i;
-                                if (poe.No == 1)
+                                Emonth j;
+                                if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
                                 {
-                                    Emonth j;
-                                    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                    {
-                                        j = i + 10;
-                                    }
-                                    else
-                                    {
-                                        j = i - 2;
-                                    }
-                                    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                    var tax = _download_serialized_json_data<Rootobject>(url);
-                                    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                    if (taxOwn != null)
-                                    {
-                                        or.ResultMonthValue = taxOwn.CMcurrentYear;
-                                    }
+                                    j = i + 10;
                                 }
+                                else
+                                {
+                                    j = i - 2;
+                                }
+                                var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
+                                var tax = _download_serialized_json_data<Rootobject>(url);
+                                var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
+                                if (taxOwn != null)
+                                {
+                                    or.ResultMonthValue = taxOwn.CMcurrentYear;
+                                }
+                            }
+                            or.OwnScores.Add(oc);
+                            or.Save();
+                            oc.OwnResults.Add(or);
+                            sum += or.ResultMonthValue;
+                        }
+                        else
+                        {
+                            bool orHavedOc = false;
+                            foreach (OwnScore o in or.OwnScores)
+                            {
+                                if (o == oc) orHavedOc = true;
+                            }
+                            if (!orHavedOc)
+                            {
                                 or.OwnScores.Add(oc);
-                                or.Save();
+                            }
+                            or.Save();
+
+                            bool ocHavedOr = false;
+                            foreach (OwnResult r in oc.OwnResults)
+                            {
+
+                            }
+                            if (!ocHavedOr)
+                            {
                                 oc.OwnResults.Add(or);
-                                sum += or.ResultMonthValue;
                             }
-                            else
-                            {
-                                bool orHavedOc = false;
-                                foreach (OwnScore o in or.OwnScores)
-                                {
-                                    if (o == oc) orHavedOc = true;
-                                }
-                                if (!orHavedOc)
-                                {
-                                    or.OwnScores.Add(oc);
-                                }
-                                or.Save();
 
-                                bool ocHavedOr = false;
-                                foreach (OwnResult r in oc.OwnResults)
-                                {
-
-                                }
-                                if (!ocHavedOr)
-                                {
-                                    oc.OwnResults.Add(or);
-                                }
-
-                                sum += or.ResultMonthValue;
-                            }
+                            sum += or.ResultMonthValue;
                         }
-                        oc.Result = sum;//End Crete OwnerResult.
-                                        //ObjectSpace.CommitChanges();
+                    }
+                    oc.Result = sum;//End Crete OwnerResult.
+                                    //ObjectSpace.CommitChanges();
 
-                        sum = 0m;
-                        for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                    sum = 0m;
+                    for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                    {
+                        AuditResult aResult = ObjectSpace.FindObject<AuditResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, null, oss.ERound.Year, i));
+                        if (aResult == null)
                         {
-                            AuditResult aResult = ObjectSpace.FindObject<AuditResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, null, oss.ERound.Year, i));
-                            if (aResult == null)
-                            {
 
-                                aResult = ObjectSpace.CreateObject<AuditResult>();
-                                aResult.Office = office;
-                                aResult.PoE = poe;
-                                aResult.Year = oss.ERound.Year;
-                                aResult.ResultMonth = i;
-                                if (poe.No == 1)
+                            aResult = ObjectSpace.CreateObject<AuditResult>();
+                            aResult.Office = office;
+                            aResult.PoE = poe;
+                            aResult.Year = oss.ERound.Year;
+                            aResult.ResultMonth = i;
+                            if (poe.No == 1)
+                            {
+                                Emonth j;
+                                if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
                                 {
-                                    Emonth j;
-                                    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                    {
-                                        j = i + 10;
-                                    }
-                                    else
-                                    {
-                                        j = i - 2;
-                                    }
-                                    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                    var tax = _download_serialized_json_data<Rootobject>(url);
-                                    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                    if (taxOwn != null)
-                                    {
-                                        aResult.ResultMonthValue = taxOwn.CMcurrentYear;
-                                    }
+                                    j = i + 10;
                                 }
+                                else
+                                {
+                                    j = i - 2;
+                                }
+                                var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
+                                var tax = _download_serialized_json_data<Rootobject>(url);
+                                var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
+                                if (taxOwn != null)
+                                {
+                                    aResult.ResultMonthValue = taxOwn.CMcurrentYear;
+                                }
+                            }
+                            aResult.AuditScores.Add(aoc);
+                            aResult.Save();
+
+                            aoc.AuditResults.Add(aResult);
+                            sum += aResult.ResultMonthValue;
+                        }
+                        else
+                        {
+                            bool arHevedAoc = false;
+                            foreach (AuditScore a in aResult.AuditScores)
+                            {
+                                if (a == aoc) arHevedAoc = true;
+                            }
+                            if (!arHevedAoc)
+                            {
                                 aResult.AuditScores.Add(aoc);
-                                aResult.Save();
-
-                                aoc.AuditResults.Add(aResult);
-                                sum += aResult.ResultMonthValue;
                             }
-                            else
+                            aResult.Save();
+
+                            bool aocHevedAr = false;
+                            foreach (AuditResult ar in aoc.AuditResults)
                             {
-                                bool arHevedAoc = false;
-                                foreach (AuditScore a in aResult.AuditScores)
-                                {
-                                    if (a == aoc) arHevedAoc = true;
-                                }
-                                if (!arHevedAoc)
-                                {
-                                    aResult.AuditScores.Add(aoc);
-                                }
-                                aResult.Save();
-
-                                bool aocHevedAr = false;
-                                foreach (AuditResult ar in aoc.AuditResults)
-                                {
-                                    if (ar == aResult) aocHevedAr = true;
-                                }
-                                if (!aocHevedAr)
-                                {
-                                    aoc.AuditResults.Add(aResult);
-                                }
-                                sum += aResult.ResultMonthValue;
+                                if (ar == aResult) aocHevedAr = true;
                             }
+                            if (!aocHevedAr)
+                            {
+                                aoc.AuditResults.Add(aResult);
+                            }
+                            sum += aResult.ResultMonthValue;
                         }
-                        aoc.Result = sum;//End Crete AuditResult.
-                        aoc.Save();
+                    }
+                    aoc.Result = sum;//End Crete AuditResult.
+                    aoc.Save();
 
-                        oc.AuditScore = aoc;
-                        oc.Save();
+                    //oc.AuditScore = aoc;
+                    oc.Save();
 
-                        bool scHavedOc = false;
-                        foreach (OwnScore o in sc.OwnScores)
-                        {
-                            if (o == oc) scHavedOc = true;
-                        }
-                        if (!scHavedOc)
-                        {
-                            sc.OwnScores.Add(oc);
-                        }
+                    bool scHavedOc = false;
+                    foreach (OwnScore o in sc.OwnScores)
+                    {
+                        if (o == oc) scHavedOc = true;
+                    }
+                    if (!scHavedOc)
+                    {
+                        sc.OwnScores.Add(oc);
                     }
                 }//End PointOfEvaluation Loop
 
@@ -658,26 +656,29 @@ namespace pes.Module.Controllers
         private void InitialDataEntryController_Activated(object sender, EventArgs e)
         {
             //เริ่มสร้าง
-            OpenSendScore oss = ObjectSpace.FindObject<OpenSendScore>(CriteriaOperator.Parse("Open = ? AND ERound != null", true));
-            if (oss != null && oss.Open)
+            OpenSendScore oss = ObjectSpace.FindObject<OpenSendScore>(CriteriaOperator.Parse("Open = ?", true));
+            if (oss != null)
             {
-                Employee owner = ObjectSpace.GetObjectByKey<Employee>(SecuritySystem.CurrentUserId);
-                //Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("Office= ? AND ERound = ?", owner.Office, oss.ERound));
-                Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("ERound = ? AND Office=?", oss.ERound, 995));
-                if (oscore == null)
+                if (oss.ERound != null)
                 {
-                    CreateAll(oss, owner);
-                }
-                else
-                {
-                    MessageOptions options = new MessageOptions();
-                    options.Duration = 2000;
-                    options.Message = string.Format("{0} มีการสร้างตารางข้อมูลแล้ว!!!", oss.ERound.Title);
-                    options.Type = InformationType.Error;
-                    options.Web.Position = InformationPosition.Top;
-                    options.Win.Caption = "Error";
-                    options.Win.Type = WinMessageType.Flyout;
-                    Application.ShowViewStrategy.ShowMessage(options);
+                    Employee owner = ObjectSpace.GetObjectByKey<Employee>(SecuritySystem.CurrentUserId);
+                    //Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("Office= ? AND ERound = ?", owner.Office, oss.ERound));
+                    Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("ERound = ? AND Office=?", oss.ERound, 995));
+                    if (oscore == null)
+                    {
+                        CreateAll(oss, owner);
+                    }
+                    else
+                    {
+                        MessageOptions options = new MessageOptions();
+                        options.Duration = 2000;
+                        options.Message = string.Format("{0} มีการสร้างตารางข้อมูลแล้ว!!!", oss.ERound.Title);
+                        options.Type = InformationType.Error;
+                        options.Web.Position = InformationPosition.Top;
+                        options.Win.Caption = "Error";
+                        options.Win.Type = WinMessageType.Flyout;
+                        Application.ShowViewStrategy.ShowMessage(options);
+                    }
                 }
             }
             else

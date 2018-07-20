@@ -225,16 +225,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Reports\DimentionReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\DimentionReport.Designer.cs">
-      <DependentUpon>DimentionReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\OwnerReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\ScoreReport.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Web References\th.go.rd.wservice1\Reference.cs">
@@ -261,17 +252,8 @@
       <DependentUpon>Module.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Reports\DimentionReport.resx">
-      <DependentUpon>DimentionReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\OwnerReport.resx">
       <DependentUpon>OwnerReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ScoreReport.resx">
-      <DependentUpon>ScoreReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ScoreReport.th.resx">
-      <DependentUpon>ScoreReport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

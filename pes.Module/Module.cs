@@ -32,7 +32,6 @@ namespace pes.Module {
             PredefinedReportsUpdater predefinedReportsUpdater =
                 new PredefinedReportsUpdater(Application, objectSpace, versionFromDB);
             predefinedReportsUpdater.AddPredefinedReport<OwnerReport>("รายงานผลคะแนน", typeof(OwnScore), isInplaceReport: true);
-            //predefinedReportsUpdater.AddPredefinedReport<ScoreReport>("ผลคะแนน", typeof(OwnScore), isInplaceReport: true);
             return new ModuleUpdater[] { updater, predefinedReportsUpdater };
         }
         public override void Setup(XafApplication application) {
