@@ -42,7 +42,7 @@
         <Member Name="DifExpectResult" DisplayFormat="{0:N3}" />
         <Member Name="Expect" DisplayFormat="{0:N3}" />
         <Member Name="OwnScore" Caption="หน่วยงาน" />
-        <Member Name="PercentDif" DisplayFormat="{0:N4}%" />
+        <Member Name="PercentDif" DisplayFormat="{0:P4}" />
         <Member Name="Result" DisplayFormat="{0:N3}" />
         <Member Name="Score" DisplayFormat="{0:N4}" />
         <Member Name="WeightScore" DisplayFormat="{0:N4}%" />
@@ -138,6 +138,11 @@
     </Items>
   </NavigationItems>
   <Views>
+    <ListView Id="AuditScore_ListView">
+      <Columns>
+        <ColumnInfo Id="PercentDif" DisplayFormat="{0:P4}" />
+      </Columns>
+    </ListView>
     <DetailView Id="Dimension_DetailView">
       <Layout>
         <LayoutGroup Id="Main">
@@ -173,6 +178,15 @@
         <ColumnInfo Id="Title" Caption="รอบการประเมิน" />
       </Columns>
     </ListView>
+    <DetailView Id="OpenSendScore_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="Oid" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="OwnResult_ListView_All" Caption="ผลการดำเนินการรายเดือน (ทั้งหมด)" />
     <DetailView Id="PointOfEvaluation_DetailView">
       <Layout>
