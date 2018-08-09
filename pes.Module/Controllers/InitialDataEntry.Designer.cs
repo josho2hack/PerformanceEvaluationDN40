@@ -29,25 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CreateERoundInitialAction = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
-            // 
-            // CreateERoundInitialAction
-            // 
-            this.CreateERoundInitialAction.Caption = "สร้างตารางสำหรับบันทึกข้อมูลในรอบปัจจุบัน";
-            this.CreateERoundInitialAction.Category = "Save";
-            this.CreateERoundInitialAction.ConfirmationMessage = "สร้างตารางสำหรับบันทึก ใช่หรือไม่ ?";
-            this.CreateERoundInitialAction.Id = "CreateERoundInitialAction";
-            this.CreateERoundInitialAction.ImageName = "Action_SimpleAction";
-            this.CreateERoundInitialAction.TargetObjectsCriteria = "Open = true";
-            this.CreateERoundInitialAction.TargetObjectType = typeof(pes.Module.BusinessObjects.OpenSendScore);
-            this.CreateERoundInitialAction.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
-            this.CreateERoundInitialAction.ToolTip = null;
-            this.CreateERoundInitialAction.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
-            this.CreateERoundInitialAction.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.CreateERoundInitialAction_Execute);
             // 
             // InitialDataEntryController
             // 
-            this.Actions.Add(this.CreateERoundInitialAction);
             this.TargetObjectType = typeof(pes.Module.BusinessObjects.OpenSendScore);
             this.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
@@ -56,7 +40,5 @@
         }
 
         #endregion
-
-        private DevExpress.ExpressApp.Actions.SimpleAction CreateERoundInitialAction;
     }
 }

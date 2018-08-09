@@ -60,46 +60,6 @@ namespace pes.Module.Controllers
             }
         }
 
-        private void CreateERoundInitialAction_Execute(object sender, SimpleActionExecuteEventArgs e)
-        {
-            //เริ่มสร้าง
-            OpenSendScore oss = ObjectSpace.FindObject<OpenSendScore>(CriteriaOperator.Parse("Open = ? AND ERound != null", true));
-            if (oss != null && oss.Open)
-            {
-                Employee owner = ObjectSpace.GetObjectByKey<Employee>(SecuritySystem.CurrentUserId);
-                //Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("Office= ? AND ERound = ?", owner.Office, oss.ERound));
-                Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("ERound = ? AND Office=?", oss.ERound, 995));
-                if (oscore == null)
-                {
-                    CreateAll(oss, owner);
-                }
-                else
-                {
-                    MessageOptions options = new MessageOptions();
-                    options.Duration = 2000;
-                    options.Message = string.Format("{0} มีการสร้างตารางข้อมูลแล้ว!!!", oss.ERound.Title);
-                    options.Type = InformationType.Error;
-                    options.Web.Position = InformationPosition.Top;
-                    options.Win.Caption = "Error";
-                    options.Win.Type = WinMessageType.Flyout;
-                    Application.ShowViewStrategy.ShowMessage(options);
-                }
-            }
-            else
-            {
-                MessageOptions options = new MessageOptions();
-                options.Duration = 2000;
-                options.Message = string.Format("ยังไม่เปิดให้บันทึกข้อมูล หรือ ไม่มีรอบประเมินที่เปิด!!!");
-                options.Type = InformationType.Error;
-                options.Web.Position = InformationPosition.Top;
-                options.Win.Caption = "Error";
-                options.Win.Type = WinMessageType.Flyout;
-                Application.ShowViewStrategy.ShowMessage(options);
-            }
-
-            //ObjectSpace.SetModified(View.CurrentObject);
-        }
-
         private void CreateAll(OpenSendScore oss, Employee owner)
         {
             var listOffice = ObjectSpace.GetObjects<Office>(CriteriaOperator.Parse("OfficeId like '%000'"));
@@ -116,7 +76,7 @@ namespace pes.Module.Controllers
                     sc.Owner = owner;
                 }
 
-                decimal sum = 0m;
+                decimal sum;
 
                 string ofid;
                 if ((sc.Office.OfficeId.Substring(0, 3) == "000" && sc.Office.OfficeId.Substring(5, 3) == "000") || (sc.Office.OfficeId.Substring(2, 6) == "000000"))
@@ -164,283 +124,18 @@ namespace pes.Module.Controllers
                         }
                     }
 
-                    if (oc.PointOfEvaluation.SPoEs != null)
-                    {
-                        foreach (SubPointOfEvaluation soe in poe.SPoEs)
-                        {
-                            OwnScore soc = ObjectSpace.FindObject<OwnScore>(CriteriaOperator.Parse("MainScore = ? AND PointOfEvaluation=? AND SubPointOfEvaluation=?", sc, poe, soe));
-                            AuditScore asoc;
-                            if (soc == null)
-                            {
-                                soc = ObjectSpace.CreateObject<OwnScore>(); // SubPoE
-                                soc.MainScore = sc;
-                                soc.PointOfEvaluation = poe;
-                                soc.SubPointOfEvaluation = soe;
-
-                                asoc = ObjectSpace.CreateObject<AuditScore>(); //Audit Score of SubPoE
-                                asoc.OwnScore = soc;
-                                asoc.Owner = owner;
-                            }
-                            else
-                            {
-                                if (soc.AuditScore == null)
-                                {
-                                    asoc = ObjectSpace.FindObject<AuditScore>(CriteriaOperator.Parse("OwnScore = ?", soc));
-                                    if (asoc == null)
-                                    {
-                                        asoc = ObjectSpace.CreateObject<AuditScore>(); //Audit Score of SubPoE
-                                        asoc.OwnScore = soc;
-                                        asoc.Owner = owner;
-                                    }
-                                    else
-                                    {
-                                        soc.AuditScore = asoc;
-                                    }
-                                }
-                                else
-                                {
-                                    asoc = soc.AuditScore;
-                                }
-                            }
-
-                            sum = 0m;
-                            for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
-                            {
-                                DetailExpect sexpect = ObjectSpace.FindObject<DetailExpect>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ExpectMonth=?", office, poe, soe, oss.ERound.Year, i));
-                                if (sexpect == null) //สร้าง ข้อมูลประมาณการหากไม่มีเดือนในรอบ
-                                {
-                                    sexpect = ObjectSpace.CreateObject<DetailExpect>();
-                                    sexpect.Office = office;
-                                    sexpect.PoE = poe;
-                                    sexpect.SPoE = soe;
-                                    sexpect.Year = oss.ERound.Year;
-                                    sexpect.ExpectMonth = i;
-                                    //if (poe.No == 1)
-                                    //{
-                                    //    Emonth j;
-                                    //    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                    //    {
-                                    //        j = i + 10;
-                                    //    }
-                                    //    else
-                                    //    {
-                                    //        j = i - 2;
-                                    //    }
-                                    //    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                    //    var tax = _download_serialized_json_data<Rootobject>(url);
-                                    //    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                    //    if (taxOwn != null)
-                                    //    {
-                                    //        sexpect.ExpectMonthValue = taxOwn.CMCYforcast;
-                                    //    }
-                                    //}
-                                    sexpect.AuditScores.Add(asoc);
-                                    sexpect.Save();
-
-                                    asoc.DetailExpects.Add(sexpect);
-
-                                    sum += sexpect.ExpectMonthValue;
-                                }
-                                else
-                                {
-                                    bool sexpectHavedAudit = false;
-                                    foreach (AuditScore au in sexpect.AuditScores)
-                                    {
-                                        if (au == asoc) sexpectHavedAudit = true;
-                                    }
-                                    if (!sexpectHavedAudit)
-                                    {
-                                        sexpect.AuditScores.Add(asoc);
-                                    }
-                                    sexpect.Save();
-
-                                    bool asocHavedExpect = false;
-                                    foreach (DetailExpect de in asoc.DetailExpects)
-                                    {
-                                        if (de == sexpect) asocHavedExpect = true;
-                                    }
-                                    if (!asocHavedExpect)
-                                    {
-                                        asoc.DetailExpects.Add(sexpect);
-                                    }
-
-                                    sum += sexpect.ExpectMonthValue;
-                                }
-                            }
-                            asoc.Expect = sum; //End Crete Sub DetailExpect.
-                            //ObjectSpace.CommitChanges();
-
-                            sum = 0m;
-                            for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
-                            {
-                                OwnResult sor = ObjectSpace.FindObject<OwnResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, soe, oss.ERound.Year, i));
-                                if (sor == null)
-                                {
-                                    sor = ObjectSpace.CreateObject<OwnResult>();
-                                    sor.Office = office;
-                                    sor.PoE = poe;
-                                    sor.SPoE = soe;
-                                    sor.Year = oss.ERound.Year;
-                                    sor.ResultMonth = i;
-                                    //if (poe.No == 1)
-                                    //{
-                                    //    Emonth j;
-                                    //    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                    //    {
-                                    //        j = i + 10;
-                                    //    }
-                                    //    else
-                                    //    {
-                                    //        j = i - 2;
-                                    //    }
-                                    //    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                    //    var tax = _download_serialized_json_data<Rootobject>(url);
-                                    //    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                    //    if (taxOwn != null)
-                                    //    {
-                                    //        sor.ResultMonthValue = taxOwn.CMcurrentYear;
-                                    //    }
-                                    //}
-                                    sor.OwnScores.Add(soc);
-                                    sor.Save();
-
-                                    bool sorHavedsoc = false;
-                                    foreach (OwnResult or in soc.OwnResults)
-                                    {
-                                        if (or == sor) sorHavedsoc = true;
-                                    }
-                                    if (!sorHavedsoc)
-                                    {
-                                        soc.OwnResults.Add(sor);
-                                    }
-
-                                    sum += sor.ResultMonthValue;
-                                }
-                                else
-                                {
-                                    if (sor.OwnScores == null)
-                                    {
-                                        sor.OwnScores.Add(soc);
-                                        sor.Save();
-                                    }
-
-                                    bool sorHavedsoc = false;
-                                    foreach (OwnResult or in soc.OwnResults)
-                                    {
-                                        if (or == sor) sorHavedsoc = true;
-                                    }
-                                    if (!sorHavedsoc)
-                                    {
-                                        soc.OwnResults.Add(sor);
-                                    }
-
-                                    sum += sor.ResultMonthValue;
-                                }
-                            }
-                            soc.Result = sum;//End Crete Sub OwnerResult.
-                            //ObjectSpace.CommitChanges();
-
-                            sum = 0m;
-                            for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
-                            {
-                                AuditResult asResult = ObjectSpace.FindObject<AuditResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, soe, oss.ERound.Year, i));
-                                if (asResult == null)
-                                {
-                                    asResult = ObjectSpace.CreateObject<AuditResult>();
-                                    asResult.Office = office;
-                                    asResult.PoE = poe;
-                                    asResult.SPoE = soe;
-                                    asResult.Year = oss.ERound.Year;
-                                    asResult.ResultMonth = i;
-                                    //if (poe.No == 1)
-                                    //{
-                                    //    Emonth j;
-                                    //    if (i == Emonth.ตุลาคม || i == Emonth.พฤศจิกายน || i == Emonth.ธันวาคม)
-                                    //    {
-                                    //        j = i + 10;
-                                    //    }
-                                    //    else
-                                    //    {
-                                    //        j = i - 2;
-                                    //    }
-                                    //    var url = "http://10.20.37.11:7072/serviceTier/webapi/All/officeId/" + ofid + "/year/" + oss.ERound.Year.ToString("D4") + "/month/" + ((int)j).ToString("D2");//DateTime.Now.Month.ToString("D2");
-                                    //    var tax = _download_serialized_json_data<Rootobject>(url);
-                                    //    var taxOwn = tax.taxCollection.FirstOrDefault(t => t.officeCode == sc.Office.OfficeId);
-                                    //    if (taxOwn != null)
-                                    //    {
-                                    //        asResult.ResultMonthValue = taxOwn.CMcurrentYear;
-                                    //    }
-                                    //}
-                                    asResult.AuditScores.Add(asoc);
-                                    asResult.Save();
-
-                                    bool arHavedaoc = false;
-                                    foreach (AuditResult ar in asoc.AuditResults)
-                                    {
-                                        if (ar == asResult) arHavedaoc = true;
-                                    }
-                                    if (!arHavedaoc)
-                                    {
-                                        asoc.AuditResults.Add(asResult);
-                                    }
-                                    sum += asResult.ResultMonthValue;
-                                }
-                                else
-                                {
-                                    if (asoc.AuditResults == null)
-                                    {
-                                        asResult.AuditScores.Add(asoc);
-                                        asResult.Save();
-                                    }
-
-                                    bool arHavedaoc = false;
-                                    foreach (AuditResult ar in asoc.AuditResults)
-                                    {
-                                        if (ar == asResult) arHavedaoc = true;
-                                    }
-                                    if (!arHavedaoc)
-                                    {
-                                        asoc.AuditResults.Add(asResult);
-                                    }
-                                    sum += asResult.ResultMonthValue;
-                                }
-                            }
-
-                            asoc.Result = sum;//End Crete Sub AuditResult.
-                            asoc.Save();
-
-                            //Save Sub Owner Score
-
-                            soc.Save();
-
-                            //Add Sub Owner Score to Main Score
-                            bool socHavedsc = false;
-                            foreach (OwnScore o in sc.OwnScores)
-                            {
-                                if (o == soc) socHavedsc = true;
-                            }
-                            if (!socHavedsc)
-                            {
-                                sc.OwnScores.Add(soc);
-                            }
-
-                            //sc.Save();
-                            //ObjectSpace.CommitChanges();
-                        }
-                    }//End SupPointOfEvaluation
-
                     sum = 0m;
                     for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
                     {
-                        DetailExpect expect = ObjectSpace.FindObject<DetailExpect>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ExpectMonth=?", office, poe, null, oss.ERound.Year, i));
+                        DetailExpect expect = ObjectSpace.FindObject<DetailExpect>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE is null AND Year=? AND ExpectMonth=?", office, poe, oss.ERound.Year, i));
                         if (expect == null)
                         {
-
                             expect = ObjectSpace.CreateObject<DetailExpect>();
                             expect.Office = office;
                             expect.PoE = poe;
                             expect.Year = oss.ERound.Year;
                             expect.ExpectMonth = i;
+
                             if (poe.No == 1)
                             {
                                 Emonth j;
@@ -498,7 +193,7 @@ namespace pes.Module.Controllers
                     sum = 0m;
                     for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
                     {
-                        OwnResult or = ObjectSpace.FindObject<OwnResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, null, oss.ERound.Year, i));
+                        OwnResult or = ObjectSpace.FindObject<OwnResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE is null AND Year=? AND ResultMonth=?", office, poe, oss.ERound.Year, i));
                         if (or == null)
                         {
                             or = ObjectSpace.CreateObject<OwnResult>();
@@ -562,7 +257,7 @@ namespace pes.Module.Controllers
                     sum = 0m;
                     for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
                     {
-                        AuditResult aResult = ObjectSpace.FindObject<AuditResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, null, oss.ERound.Year, i));
+                        AuditResult aResult = ObjectSpace.FindObject<AuditResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE is null AND Year=? AND ResultMonth=?", office, poe, oss.ERound.Year, i));
                         if (aResult == null)
                         {
 
@@ -636,21 +331,219 @@ namespace pes.Module.Controllers
                     {
                         sc.OwnScores.Add(oc);
                     }
+
+                    if (oc.PointOfEvaluation.SPoEs != null)
+                    {
+                        foreach (SubPointOfEvaluation soe in poe.SPoEs)
+                        {
+                            OwnScore soc = ObjectSpace.FindObject<OwnScore>(CriteriaOperator.Parse("MainScore = ? AND PointOfEvaluation=? AND SubPointOfEvaluation=?", sc, poe, soe));
+                            AuditScore asoc;
+                            if (soc == null)
+                            {
+                                soc = ObjectSpace.CreateObject<OwnScore>(); // SubPoE
+                                soc.MainScore = sc;
+                                soc.PointOfEvaluation = poe;
+                                soc.SubPointOfEvaluation = soe;
+
+                                asoc = ObjectSpace.CreateObject<AuditScore>(); //Audit Score of SubPoE
+                                asoc.OwnScore = soc;
+                                asoc.Owner = owner;
+                            }
+                            else
+                            {
+                                if (soc.AuditScore == null)
+                                {
+                                    asoc = ObjectSpace.FindObject<AuditScore>(CriteriaOperator.Parse("OwnScore = ?", soc));
+                                    if (asoc == null)
+                                    {
+                                        asoc = ObjectSpace.CreateObject<AuditScore>(); //Audit Score of SubPoE
+                                        asoc.OwnScore = soc;
+                                        asoc.Owner = owner;
+                                    }
+                                    else
+                                    {
+                                        soc.AuditScore = asoc;
+                                    }
+                                }
+                                else
+                                {
+                                    asoc = soc.AuditScore;
+                                }
+                            }
+
+                            sum = 0m;
+                            for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                            {
+                                DetailExpect sexpect = ObjectSpace.FindObject<DetailExpect>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ExpectMonth=?", office, poe, soe, oss.ERound.Year, i));
+                                if (sexpect == null) //สร้าง ข้อมูลประมาณการหากไม่มีเดือนในรอบ
+                                {
+                                    sexpect = ObjectSpace.CreateObject<DetailExpect>();
+                                    sexpect.Office = office;
+                                    sexpect.PoE = poe;
+                                    sexpect.SPoE = soe;
+                                    sexpect.Year = oss.ERound.Year;
+                                    sexpect.ExpectMonth = i;
+                                    sexpect.AuditScores.Add(asoc);
+                                    sexpect.Save();
+
+                                    asoc.DetailExpects.Add(sexpect);
+
+                                    sum += sexpect.ExpectMonthValue;
+                                }
+                                else
+                                {
+                                    bool sexpectHavedAudit = false;
+                                    foreach (AuditScore au in sexpect.AuditScores)
+                                    {
+                                        if (au == asoc) sexpectHavedAudit = true;
+                                    }
+                                    if (!sexpectHavedAudit)
+                                    {
+                                        sexpect.AuditScores.Add(asoc);
+                                    }
+                                    sexpect.Save();
+
+                                    bool asocHavedExpect = false;
+                                    foreach (DetailExpect de in asoc.DetailExpects)
+                                    {
+                                        if (de == sexpect) asocHavedExpect = true;
+                                    }
+                                    if (!asocHavedExpect)
+                                    {
+                                        asoc.DetailExpects.Add(sexpect);
+                                    }
+
+                                    sum += sexpect.ExpectMonthValue;
+                                }
+                            }
+                            asoc.Expect = sum; //End Crete Sub DetailExpect.
+                            //ObjectSpace.CommitChanges();
+
+                            sum = 0m;
+                            for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                            {
+                                OwnResult sor = ObjectSpace.FindObject<OwnResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, soe, oss.ERound.Year, i));
+                                if (sor == null)
+                                {
+                                    sor = ObjectSpace.CreateObject<OwnResult>();
+                                    sor.Office = office;
+                                    sor.PoE = poe;
+                                    sor.SPoE = soe;
+                                    sor.Year = oss.ERound.Year;
+                                    sor.ResultMonth = i;
+
+                                    sor.OwnScores.Add(soc);
+                                    sor.Save();
+
+                                    bool sorHavedsoc = false;
+                                    foreach (OwnResult or in soc.OwnResults)
+                                    {
+                                        if (or == sor) sorHavedsoc = true;
+                                    }
+                                    if (!sorHavedsoc)
+                                    {
+                                        soc.OwnResults.Add(sor);
+                                    }
+
+                                    sum += sor.ResultMonthValue;
+                                }
+                                else
+                                {
+                                    if (sor.OwnScores == null)
+                                    {
+                                        sor.OwnScores.Add(soc);
+                                        sor.Save();
+                                    }
+
+                                    bool sorHavedsoc = false;
+                                    foreach (OwnResult or in soc.OwnResults)
+                                    {
+                                        if (or == sor) sorHavedsoc = true;
+                                    }
+                                    if (!sorHavedsoc)
+                                    {
+                                        soc.OwnResults.Add(sor);
+                                    }
+
+                                    sum += sor.ResultMonthValue;
+                                }
+                            }
+                            soc.Result = sum;//End Crete Sub OwnerResult.
+                            //ObjectSpace.CommitChanges();
+
+                            sum = 0m;
+                            for (Emonth i = oss.ERound.MonthStart; i <= oss.ERound.MonthStop; i++)
+                            {
+                                AuditResult asResult = ObjectSpace.FindObject<AuditResult>(CriteriaOperator.Parse("Office=? AND PoE=? AND SPoE=? AND Year=? AND ResultMonth=?", office, poe, soe, oss.ERound.Year, i));
+                                if (asResult == null)
+                                {
+                                    asResult = ObjectSpace.CreateObject<AuditResult>();
+                                    asResult.Office = office;
+                                    asResult.PoE = poe;
+                                    asResult.SPoE = soe;
+                                    asResult.Year = oss.ERound.Year;
+                                    asResult.ResultMonth = i;
+
+                                    asResult.AuditScores.Add(asoc);
+                                    asResult.Save();
+
+                                    bool arHavedaoc = false;
+                                    foreach (AuditResult ar in asoc.AuditResults)
+                                    {
+                                        if (ar == asResult) arHavedaoc = true;
+                                    }
+                                    if (!arHavedaoc)
+                                    {
+                                        asoc.AuditResults.Add(asResult);
+                                    }
+                                    sum += asResult.ResultMonthValue;
+                                }
+                                else
+                                {
+                                    if (asoc.AuditResults == null)
+                                    {
+                                        asResult.AuditScores.Add(asoc);
+                                        asResult.Save();
+                                    }
+
+                                    bool arHavedaoc = false;
+                                    foreach (AuditResult ar in asoc.AuditResults)
+                                    {
+                                        if (ar == asResult) arHavedaoc = true;
+                                    }
+                                    if (!arHavedaoc)
+                                    {
+                                        asoc.AuditResults.Add(asResult);
+                                    }
+                                    sum += asResult.ResultMonthValue;
+                                }
+                            }
+
+                            asoc.Result = sum;//End Crete Sub AuditResult.
+                            asoc.Save();
+
+                            //Save Sub Owner Score
+
+                            soc.Save();
+
+                            //Add Sub Owner Score to Main Score
+                            bool socHavedsc = false;
+                            foreach (OwnScore o in sc.OwnScores)
+                            {
+                                if (o == soc) socHavedsc = true;
+                            }
+                            if (!socHavedsc)
+                            {
+                                sc.OwnScores.Add(soc);
+                            }
+                        }
+                    }//End SupPointOfEvaluation
+
                 }//End PointOfEvaluation Loop
 
                 sc.Save(); //Save Score
                 ObjectSpace.CommitChanges();
-
-                MessageOptions options = new MessageOptions();
-                options.Duration = 2000;
-                options.Message = string.Format("{0} สร้างตารางข้อมูลเรียบร้อยแล้ว", oss.ERound.Title);
-                options.Type = InformationType.Success;
-                options.Web.Position = InformationPosition.Right;
-                options.Win.Caption = "Success";
-                options.Win.Type = WinMessageType.Flyout;
-                Application.ShowViewStrategy.ShowMessage(options);
             }
-            //ObjectSpace.CommitChanges();
         }
 
         private void InitialDataEntryController_Activated(object sender, EventArgs e)
@@ -662,7 +555,6 @@ namespace pes.Module.Controllers
                 if (oss.ERound != null)
                 {
                     Employee owner = ObjectSpace.GetObjectByKey<Employee>(SecuritySystem.CurrentUserId);
-                    //Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("Office= ? AND ERound = ?", owner.Office, oss.ERound));
                     Score oscore = ObjectSpace.FindObject<Score>(CriteriaOperator.Parse("ERound = ? AND Office=?", oss.ERound, 995));
                     if (oscore == null)
                     {

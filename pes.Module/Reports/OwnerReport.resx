@@ -154,4 +154,10 @@ Iif([MainScore.ERound.MonthStop]==8,'สิงหาคม',
   <metadata name="collectionDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="weightM.Expression" xml:space="preserve">
+    <value>Iif(IsNullOrEmpty([SubPointOfEvaluation]),0,
+
+Iif(Substring([MainScore.Office.OfficeId], 0 , 3) == '000', Iif(Substring([MainScore.Office.OfficeId], 5 , 3) == '000' ,Iif(Substring([MainScore.Office.OfficeId], 2 , 6) == '000000',[SubPointOfEvaluation.Weight],[SubPointOfEvaluation.WeightForST]),[SubPointOfEvaluation.WeightForST]),[SubPointOfEvaluation.WeightForST])
+)</value>
+  </data>
 </root>

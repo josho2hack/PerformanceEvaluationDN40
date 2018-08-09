@@ -94,6 +94,7 @@ namespace pes.Module.BusinessObjects
 
         [Association("ERounds-PoEs")]
         [XafDisplayName("ตัวชี้วัดของรอบ")]
+        [RulePropertiesRequired]
         public XPCollection<PointOfEvaluation> PoEs
         {
             get

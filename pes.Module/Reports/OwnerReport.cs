@@ -24,14 +24,12 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
     private XRTableRow xrTableRow7;
     private XRTableCell xrTableCell35;
     private XRTableCell xrTableCell36;
-    private XRTableCell xrTableCell37;
     private XRTableCell xrTableCell38;
     private XRTableCell xrTableCell39;
     private XRTableCell xrTableCell40;
     private CalculatedField PoE_Title;
     private CalculatedField weight;
     private PageHeaderBand PageHeader;
-    private ReportFooterBand ReportFooter;
     private CalculatedField StartM;
     private CalculatedField StopM;
     private CalculatedField weigthE;
@@ -88,9 +86,13 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
     private XRTableCell xrTableCell7;
     private XRTableCell xrTableCell8;
     private XRTableCell xrTableCell9;
-    private CalculatedField calSumPoE;
     private CalculatedField calSumWeightScore;
     private CalculatedField weightD;
+    private CalculatedField ResultPercent;
+    private CalculatedField calSumWeight;
+    private ReportFooterBand ReportFooter;
+    private XRTableCell xrTableCell37;
+    private CalculatedField weightM;
 
     /// <summary>
     /// Required designer variable.
@@ -153,7 +155,6 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
     private void InitializeComponent()
     {
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerReport));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -221,16 +222,18 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             this.xrTableCell56 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell57 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell58 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.StartM = new DevExpress.XtraReports.UI.CalculatedField();
             this.StopM = new DevExpress.XtraReports.UI.CalculatedField();
             this.weigthE = new DevExpress.XtraReports.UI.CalculatedField();
             this.customFontStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.customFontStyleB = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.calSumPoE = new DevExpress.XtraReports.UI.CalculatedField();
             this.calSumWeightScore = new DevExpress.XtraReports.UI.CalculatedField();
             this.weightD = new DevExpress.XtraReports.UI.CalculatedField();
             this.collectionDataSource1 = new DevExpress.Persistent.Base.ReportsV2.CollectionDataSource();
+            this.ResultPercent = new DevExpress.XtraReports.UI.CalculatedField();
+            this.calSumWeight = new DevExpress.XtraReports.UI.CalculatedField();
+            this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.weightM = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -315,12 +318,12 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrTableCell7.Dpi = 254F;
             this.xrTableCell7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Result]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ResultPercent]")});
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StyleName = "customFontStyle";
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell7.TextFormatString = "{0:#,#.000}";
+            this.xrTableCell7.TextFormatString = "{0:P2}";
             this.xrTableCell7.Weight = 0.54153152719308628D;
             // 
             // xrTableCell8
@@ -339,7 +342,7 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrTableCell9.Dpi = 254F;
             this.xrTableCell9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[WeightScore]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull([SubPointOfEvaluation]),[WeightScore],\'\')")});
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StyleName = "customFontStyle";
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
@@ -553,7 +556,7 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             this.xrTable5.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable5.Dpi = 254F;
-            this.xrTable5.LocationFloat = new DevExpress.Utils.PointFloat(8.074442E-05F, 0F);
+            this.xrTable5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrTable5.Name = "xrTable5";
             this.xrTable5.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow7});
@@ -591,13 +594,9 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             // xrTableCell37
             // 
             this.xrTableCell37.Dpi = 254F;
-            this.xrTableCell37.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([PointOfEvaluation].[Weight])")});
             this.xrTableCell37.Name = "xrTableCell37";
-            this.xrTableCell37.StyleName = "customFontStyle";
-            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Page;
-            this.xrTableCell37.Summary = xrSummary1;
-            this.xrTableCell37.TextFormatString = "{0:#}";
+            this.xrTableCell37.StyleName = "customFontStyleB";
+            this.xrTableCell37.Text = "100";
             this.xrTableCell37.Weight = 0.451276272660905D;
             // 
             // xrTableCell38
@@ -616,12 +615,13 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             // 
             this.xrTableCell40.Dpi = 254F;
             this.xrTableCell40.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[calSumWeightScore]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([WeightScore])")});
             this.xrTableCell40.Name = "xrTableCell40";
             this.xrTableCell40.StyleName = "customFontStyleB";
-            xrSummary2.FormatString = "{0:#,#.0000}";
-            xrSummary2.IgnoreNullValues = true;
-            this.xrTableCell40.Summary = xrSummary2;
+            xrSummary1.FormatString = "{0:#,#.0000}";
+            xrSummary1.IgnoreNullValues = true;
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Page;
+            this.xrTableCell40.Summary = xrSummary1;
             this.xrTableCell40.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell40.TextFormatString = "{0:#,#.0000}";
             this.xrTableCell40.Weight = 0.49442819179859565D;
@@ -951,15 +951,6 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             this.xrTableCell58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell58.Weight = 0.49442819179859565D;
             // 
-            // ReportFooter
-            // 
-            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable5});
-            this.ReportFooter.Dpi = 254F;
-            this.ReportFooter.HeightF = 63.5F;
-            this.ReportFooter.Name = "ReportFooter";
-            this.ReportFooter.SnapLinePadding = new DevExpress.XtraPrinting.PaddingInfo(25, 25, 0, 25, 254F);
-            // 
             // StartM
             // 
             this.StartM.Expression = resources.GetString("StartM.Expression");
@@ -973,7 +964,7 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             // weigthE
             // 
             this.weigthE.Expression = "[][[PointOfEvaluation].[Evaluation].[Title] == [^.PointOfEvaluation].[Evaluation]" +
-    ".[Title] && IsNull([^.SubPointOfEvaluation])].Sum([weight])";
+    ".[Title] && IsNull([SubPointOfEvaluation])].Sum([weight])";
             this.weigthE.Name = "weigthE";
             // 
             // customFontStyle
@@ -984,22 +975,17 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             // 
             this.customFontStyleB.Name = "customFontStyleB";
             // 
-            // calSumPoE
-            // 
-            this.calSumPoE.Expression = "[PointOfEvaluation][[SPoEs] == null].Sum([Weight])";
-            this.calSumPoE.Name = "calSumPoE";
-            // 
             // calSumWeightScore
             // 
-            this.calSumWeightScore.Expression = "[][[PointOfEvaluation] == [^.PointOfEvaluation] && IsNull([^.SubPointOfEvaluation" +
-    "])].Sum([WeightScore])";
+            this.calSumWeightScore.Expression = "[][[PointOfEvaluation] == [^.PointOfEvaluation] && IsNull([SubPointOfEvaluation])" +
+    "].Sum([WeightScore])";
             this.calSumWeightScore.Name = "calSumWeightScore";
             // 
             // weightD
             // 
             this.weightD.Expression = "[][[PointOfEvaluation].[Evaluation].[Dimension].[Title] == [^.PointOfEvaluation]." +
-    "[Evaluation].[Dimension].[Title] && IsNull([^.SubPointOfEvaluation])].Sum([weigh" +
-    "t])";
+    "[Evaluation].[Dimension].[Title] && IsNull([SubPointOfEvaluation])].Sum([weight]" +
+    ")";
             this.weightD.Name = "weightD";
             // 
             // collectionDataSource1
@@ -1007,6 +993,30 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             this.collectionDataSource1.Name = "collectionDataSource1";
             this.collectionDataSource1.ObjectTypeName = "pes.Module.BusinessObjects.OwnScore";
             this.collectionDataSource1.TopReturnedRecords = 30;
+            // 
+            // ResultPercent
+            // 
+            this.ResultPercent.Expression = "[Result]/[AuditScore].[Expect]";
+            this.ResultPercent.Name = "ResultPercent";
+            // 
+            // calSumWeight
+            // 
+            this.calSumWeight.Expression = "[][[PointOfEvaluation].[Evaluation] == [^.PointOfEvaluation].[Evaluation] && IsNu" +
+    "ll([SubPointOfEvaluation])].Sum([weight])";
+            this.calSumWeight.Name = "calSumWeight";
+            // 
+            // ReportFooter
+            // 
+            this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable5});
+            this.ReportFooter.Dpi = 254F;
+            this.ReportFooter.HeightF = 63.5F;
+            this.ReportFooter.Name = "ReportFooter";
+            // 
+            // weightM
+            // 
+            this.weightM.Expression = resources.GetString("weightM.Expression");
+            this.weightM.Name = "weightM";
             // 
             // OwnerReport
             // 
@@ -1023,9 +1033,11 @@ public class OwnerReport : DevExpress.XtraReports.UI.XtraReport
             this.StartM,
             this.StopM,
             this.weigthE,
-            this.calSumPoE,
             this.calSumWeightScore,
-            this.weightD});
+            this.weightD,
+            this.ResultPercent,
+            this.calSumWeight,
+            this.weightM});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.collectionDataSource1});
             this.DataSource = this.collectionDataSource1;
